@@ -29,4 +29,4 @@ This repository will serve as a guide, primarily for instructors, on how to use 
 The individual pages don't have tables of contents. You can use the GitHub Outline feature to navigate between sections
 of a document.
 
-![GitHub tables of contents](github_table_of_contents.png)
+![GitHub tables of contents](screenshots/github_table_of_contents.png)
