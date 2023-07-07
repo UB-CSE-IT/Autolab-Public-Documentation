@@ -9,16 +9,24 @@ courses. It's hosted on premises at UB, and you can access it at <https://autola
 This repository will serve as a guide, primarily for instructors, on how to use Autolab.
 
 ## Table of Contents
+
 * [Getting Started](Getting%20started.md)
-  * [Your First Login](Getting%20started.md#your-first-login)
-  * [Create a Course](Getting%20started.md#create-a-course)
+    * [Your First Login](Getting%20started.md#your-first-login)
+    * [Create a Course](Getting%20started.md#create-a-course)
 * [Course Management](Course%20management.md)
-  * [Viewing Your Courses](Course%20management.md#viewing-your-courses)
-  * [Course Page](Course%20management.md#course-page)
-  * [Manage Course](Course%20management.md#manage-course)
-  * [Course Settings](Course%20management.md#course-settings)
-  * [Enrolling Students](Course%20management.md#enrolling-students)
-    * [Using the CSE IT Classlists Tool](Course%20management.md#using-the-cse-it-classlists-tool)
-    * [Uploading a CSV File](Course%20management.md#uploading-a-csv-file)
-  * [Enrolling Teaching Assistants](Course%20management.md#enrolling-teaching-assistants)
-  * [Additional Course Management Features](Course%20management.md#additional-course-management-features)
+    * [Viewing Your Courses](Course%20management.md#viewing-your-courses)
+    * [Course Page](Course%20management.md#course-page)
+    * [Manage Course](Course%20management.md#manage-course)
+    * [Course Settings](Course%20management.md#course-settings)
+    * [Enrolling Students](Course%20management.md#enrolling-students)
+        * [Using the CSE IT Classlists Tool](Course%20management.md#using-the-cse-it-classlists-tool)
+        * [Uploading a CSV File](Course%20management.md#uploading-a-csv-file)
+    * [Enrolling Teaching Assistants](Course%20management.md#enrolling-teaching-assistants)
+    * [Additional Course Management Features](Course%20management.md#additional-course-management-features)
+
+## Navigation on GitHub
+
+The individual pages don't have tables of contents. You can use the GitHub Outline feature to navigate between sections
+of a document.
+
+![GitHub tables of contents](github_table_of_contents.png)

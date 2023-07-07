@@ -115,7 +115,7 @@ Navigate to the "Manage Course Users" page.
     * Instructors have full access to the course, equivalent to yours (assuming you're the instructor who created this
       course).
     * CAs can only assign scores to problems.
-      4 Click `Submit`.
+4. Click `Submit`.
 
 ![Enroll teaching assistants](screenshots/enroll_teaching_assistants.png)
 
@@ -139,3 +139,8 @@ From the manage course page, you can notably also:
 * **Manage announcements** to show students a short message on the course dashboard
 * **Act as another user** to see what the course looks like from their perspective
 * **Run Moss cheat detection** to look for similar code submissions between students
+
+## What's Next?
+
+Now that you've created a course and enrolled students, you'll probably want
+to [Create an Assessment](Create%20an%20assessment.md).
