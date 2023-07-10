@@ -41,6 +41,12 @@ This repository will serve as a guide, primarily for instructors, on how to use 
     * [Annotate a Submission](Create%20an%20assessment.md#annotate-a-submission)
     * [Assign a Grade by Annotation](Create%20an%20assessment.md#assign-a-grade-by-annotation)
     * [Stacking Annotations](Create%20an%20assessment.md#stacking-annotations)
+* [Create an Autograder](Create%20an%20autograder.md)
+  * [Setup](Create%20an%20autograder.md#setup)
+    * [Create an Assessment](Create%20an%20autograder.md#create-an-assessment)
+    * [Set the Handin Filename](Create%20an%20autograder.md#set-the-handin-filename)
+    * [Add some Problems](Create%20an%20autograder.md#add-some-problems)
+    * [Add an Autograder](Create%20an%20autograder.md#add-an-autograder)
 
 ## Navigation on GitHub
 
