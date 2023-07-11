@@ -3,7 +3,7 @@
 This is arguably the most important feature of Autolab. An autograder will run automatically after a student makes a
 submission to an assessment. As an instructor, you will write code that grades a student's submission. When a student
 submits their work, it will be copied into a Docker container, along with your grading files and some metadata. Your
-code should interact with the students submission in some way to determine its correctness. You can print feedback to
+code should interact with the student's submission in some way to determine its correctness. You can print feedback to
 stdout for the student to see. The final line you print must be a JSON string with the student's scores for each problem
 in the assessment.
 
@@ -64,5 +64,184 @@ From the `Basic` tab, scroll down to the "Modules Used" section, and click the p
 
 ![Autograder initial settings](screenshots/autograder_initial_settings.png)
 
+## A Minimal Autograder
 
+An Autograder is composed of two files: a Makefile, and a .tar (not gzipped) archive containing your arbitrary grading
+code.
 
+Let's walk through the process of creating a super simple autograder. In the real world, you'll need to make your
+graders more robust.
+
+For this assignment, students will upload a Python script with a function named `get_positive_number` that should return
+any positive number of their choosing.
+
+This autograder's files are available in the `sample_files/autograder0` directory if you want to experiment with it.
+
+### grader.py
+
+You're free to design your grading code however you want. There are no hard requirements for structuring your grader as
+long as it can be initiated from a Makefile. For example, there's nothing special about the name "grader.py". There
+*are*, however, specific ways to format the final output, which your grader must output to stdout.
+
+The final line your grader outputs to stdout must be a JSON string formatted like this, where q1, q2, and q3 are the
+problem names in the assessment:
+
+```
+{"scores": {"q1": 10, "q2": 10, "q3": 10}}
+```
+
+There are more advanced feedback features too, but this is the bare minimum.
+
+You can review my sample `grader.py` in the `sample_files/autograder0` directory.
+
+### autograde.tar
+
+Once you've written your grader of arbitrary complexity, you'll need to package it into a .tar (not gzipped) archive. I
+provided a bash script located at sample_files/autograder0/create_grader.sh that will create the archive in this case.
+It just runs one simple command to bundle all the grading files into an archive. (In this case, there's only one file.):
+
+This file MUST be named `autograde.tar`. Autolab will rename it when you upload it, so your Makefile and anything else
+that depends on this must expect the name to be `autograde.tar`.
+
+```bash
+tar -cf autograde.tar grader.py
+```
+
+### Makefile
+
+The Makefile is the entry point for an Autograder. After copying the student's submission and your .tar grader file into
+a directory, Autolab will run `make` in that directory. This should invoke the grading process.
+
+Here's a minimal Makefile that will extract our grader and run `grader.py`.
+
+```makefile
+all:
+	tar -xf autograde.tar
+	python3 grader.py
+```
+
+## Upload the Autograder to Autolab
+
+Now that we have our autograde.tar and Makefile, we can upload them to Autolab.
+
+Since we added the Autograder module to the assessment, we can click `Autograder settings` from the assessment page.
+
+![Autograder settings link](screenshots/autograder_settings_link.png)
+
+Upload the autograde.tar and Makefile, then click `Save Settings`.
+
+Tip: You can drag the files onto the button instead of needing to open a file browser twice.
+
+![Upload autograder](screenshots/upload_autograder.png)
+
+Our assessment is now ready to grade submissions!
+
+## Test the Autograder
+
+### Upload a correct solution
+
+Let's upload a correct solution to verify that our autograder works. There's a sample solution available
+at `sample_files/autograder0/handin.py`.
+
+From the assessment page, choose the file to submit, agree to the academic integrity policy, and click `Submit`.
+
+![Submit py](screenshots/submit_py.png)
+
+You'll be redirected to your handin history.
+
+![Handin history](screenshots/handin_history.png)
+
+Refresh the page in about 3 seconds, and you'll see your scores.
+
+![Handin history scores](screenshots/handin_history_scores.png)
+
+Click one of the scores to view your feedback. For autograded assignments, each problem has the same feedback.
+
+![Handin feedback full score](screenshots/handin_feedback_full_score.png)
+
+### Upload an incorrect solution
+
+Now, let's upload an incorrect solution to verify that our autograder doesn't award points.
+
+There's a sample incorrect solution available at `sample_files/autograder0/handin_incorrect1.py`. Follow the same steps
+as before to upload this.
+
+![Handin feedback incorrect](screenshots/handin_feedback_incorrect.png)
+
+Good! Our autograder is working as expected.
+
+### Upload a problematic solution
+
+#### Crashing the grader
+
+Now, let's upload a solution that will cause our autograder to fail. This will serve to emphasize the importance of
+writing robust graders. I wrote a sample solution that doesn't contain the method our grader expects to call. It's
+available at `sample_files/autograder0/handin_incorrect2.py`.
+
+Here's the output we'll get from that:
+
+![Handin feedback crash](screenshots/handin_feedback_crash.png)
+
+Autolab tried to parse the last line as a scores JSON string, but it failed because our grader crashed before it printed
+the scores. In this case, each problem will be assigned a zero.
+
+This may not sound bad at first, but the student can see the full traceback, which may leak information about your
+grader and make it easy for them to hardcode solutions. It's very important to make your graders robust so they won't
+crash or leak sensitive information. I'll demonstrate some other naive leaking techniques below. There are more advanced
+attacks that won't be discussed publicly here.
+
+#### Getting the grader's source code
+
+For example, with this non-robust grader, the `sample_files/autograder0/handin_cheating1.py` solution will print
+grader.py's source code for the student to inspect.
+
+![Handin feedback cheating1](screenshots/handin_feedback_cheating1.png)
+
+#### Setting an arbitrary score
+
+If a student is able to print the final line of the grader's output, they can set their own score. This is possible if
+you're showing the student's output, and they're able to freeze the autograder until it times out.
+
+For example, with this non-robust grader, the `sample_files/autograder0/handin_cheating2.py` solution will
+print `{"scores": {"q1": 10, "q2": 9999, "q3": 9999}}` and then sleep for a long time. The grader will time out and
+nothing else will be printed, which means Autolab sees that line as the student's scores. You need to ensure your grader
+outputs the final line, which usually means implementing your own timeouts.
+
+![Handin feeback cheating2](screenshots/handin_feedback_cheating2.png)
+
+## Formatted Feedback
+
+The new version of Autolab (fall 2023) supports formatted feedback. This is a much more user-friendly way to show
+autograding results.
+
+To enable the most basic form of formatted feedback, you'll need to print another JSON map to stdout just before the
+scores:
+
+```
+{"_presentation": "semantic"}
+```
+
+That simple change will format the feedback like this:
+
+![Handin formatted feedback](screenshots/handin_formatted_feedback.png)
+
+That in itself isn't very useful. It's exactly what was shown on the sidebar before. Thankfully, it's possible to do
+much more.
+
+![Formatted feedback autolab docs](screenshots/formatted_feedback_autoloab_docs.png)
+*Screenshot from the Autolab Project docs*
+
+Read more about formatted feedback [here](https://docs.autolabproject.com/features/formatted-feedback/).
+
+## Student Metadata
+
+Along with the student's submission, you'll receive a JSON file named `settings.json` that contains metadata about the
+student. The format of this file looks like:
+
+```
+{"ubit":"username","ip":"1.1.1.1","lecture":"","section":"","timestamp":"2023-07-11T13:32:00.000-04:00","version":8}
+```
+
+This can be used to verify a student is submitting at the right time or from the right location.
+
+A sample grader that simply prints this information is available in `sample_files/autograder2`.
