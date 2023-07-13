@@ -207,7 +207,7 @@ print `{"scores": {"q1": 10, "q2": 9999, "q3": 9999}}` and then sleep for a long
 nothing else will be printed, which means Autolab sees that line as the student's scores. You need to ensure your grader
 outputs the final line, which usually means implementing your own timeouts.
 
-![Handin feeback cheating2](screenshots/handin_feedback_cheating2.png)
+![Handin feeback cheating2](screenshots/handin_feedback_cheating3.png)
 
 ## Formatted Feedback
 
