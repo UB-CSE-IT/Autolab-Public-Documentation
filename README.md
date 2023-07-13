@@ -61,6 +61,9 @@ This repository will serve as a guide, primarily for instructors, on how to use 
             * [Setting an Arbitrary Score](Create%20an%20autograder.md#setting-an-arbitrary-score)
     * [Formatted Feedback](Create%20an%20autograder.md#formatted-feedback)
 
+For IT staff, there's also a private internal documentation repository available
+here: <https://github.com/UB-CSE-IT/Autolab-Internal-Docs>.
+
 ## Navigation on GitHub
 
 The individual pages don't have tables of contents. You can use the GitHub Outline feature to navigate between sections
