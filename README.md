@@ -60,9 +60,26 @@ This repository will serve as a guide, primarily for instructors, on how to use 
             * [Getting the Grader's Source Code](Create%20an%20autograder.md#getting-the-graders-source-code)
             * [Setting an Arbitrary Score](Create%20an%20autograder.md#setting-an-arbitrary-score)
     * [Formatted Feedback](Create%20an%20autograder.md#formatted-feedback)
+    * [Embedded Forms](Create%20an%20autograder.md#embedded-forms)
+      * [Create the HTML Form](Create%20an%20autograder.md#create-the-html-form)
+      * [Upload the HTML Form](Create%20an%20autograder.md#upload-the-html-form)
+      * [Considerations for the Autograder](Create%20an%20autograder.md#considerations-for-the-autograder)
 
 For IT staff, there's also a private internal documentation repository available
 here: <https://github.com/UB-CSE-IT/Autolab-Internal-Docs>.
+
+## Sample Autograders
+
+Sample autograders are located in the `sample_files` directory. These are referenced throughout the documentation. Some
+autograder directories contain multiple correct and/or incorrect solutions to demonstrate how the grader works in
+different situations.
+
+* [autograder0](sample_files/autograder0) is the most minimal autograder just to give you an idea of the format.
+* [autograder1](sample_files/autograder1) is a more realistic autograder that grades 3 problems differently, but it's
+  not robust enough for real use.
+* [autograder2](sample_files/autograder2) demonstrates how to use the settings.json file to get metadata about the
+  submission.
+* [autograder3](sample_files/autograder3) demonstrates how to grade an embedded form submission.
 
 ## Navigation on GitHub
 

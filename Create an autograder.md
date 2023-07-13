@@ -229,6 +229,7 @@ That in itself isn't very useful. It's exactly what was shown on the sidebar bef
 much more.
 
 ![Formatted feedback autolab docs](screenshots/formatted_feedback_autoloab_docs.png)
+
 *Screenshot from the Autolab Project docs*
 
 Read more about formatted feedback [here](https://docs.autolabproject.com/features/formatted-feedback/).
@@ -245,3 +246,81 @@ student. The format of this file looks like:
 This can be used to verify a student is submitting at the right time or from the right location.
 
 A sample grader that simply prints this information is available in `sample_files/autograder2`.
+
+## Embedded Forms
+
+Instead of having students submit a file, you can have them fill out an HTML form and pass the data to your grader.
+
+A sample embedded form grader is available in `sample_files/autograder3`.
+
+### Create the HTML form
+
+First, let's create an HTML form. I've created a sample form in `sample_files/autograder3/form.html`. Notice that it
+only contains the inner HTML of the form tag. Autolab will automatically insert this file's contents into a form
+element.
+
+The `name` attribute on each input is the key that will be used in the JSON file.
+
+Note that the label MUST come after the input, or it will be rendered incorrectly. This is worthy of mention because
+it's different from the [Mozilla docs](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/label).
+
+This is correct:
+
+```html
+ <label>
+    <input name="q2" type="radio" value="Yes"/>
+    <span>Yes</span>
+</label>
+```
+
+This is **invalid**:
+
+```html
+ <label>
+    <span>Yes</span>
+    <input name="q2" type="radio" value="Yes"/>
+</label>
+```
+
+### Upload the HTML form
+
+After creating the form, navigate to the `Advanced` tab of the assessment options.
+
+1. Enable the embedded form
+2. Upload the embedded form
+3. Click `Save`
+
+![Add embedded form](screenshots/add_embedded_form.png)
+
+From the `Handin` tab, change the `Handin filename` to `handin.json`. This isn't strictly necessary, but it's good
+practice.
+
+### Considerations for the autograder
+
+Your grader will receive a file with the following contents:
+
+```
+{"utf8":"✓","authenticity_token":"60Na...KIRCA==","submission[embedded_quiz_form_answer]":"","q1":"apple","q2":"Yes","q3":"99","integrity_checkbox":"1"}
+```
+
+Your grader will need to parse that JSON and grade the submission accordingly. Notice it will contain non-ASCII
+characters. See the note below about encodings.
+
+After writing and uploading a grader, visit the assessment page, and you'll see a preview of the form. Fill it out and
+submit it. It'll be treated like a regular autograded assignment from here, as if the student uploaded the JSON file.
+
+![Embedded form preview](screenshots/embedded_form_preview.png)
+
+The feedback for our sample grader looks like this. Note that these are different inputs than the screenshot above.
+
+![Embedded form feedback](screenshots/embedded_form_feedback.png)
+
+* Be aware that students can submit any data they want. The form isn't validated by Autolab. For example, a multiple
+  choice question can be answered with any string. This may be used intentionally to teach about POST requests in a
+  course
+  like CSE 312: Web Applications, so I won't demonstrate it here.
+* Be careful with different encodings. It's safest to remove non-ASCII characters from the student's input. Definitely
+  test submitting with emojis to see how it behaves. 😎
+* Also test submitting a blank form.
+
+There's more information about embedded forms here: <https://docs.autolabproject.com/features/embedded-forms/>
