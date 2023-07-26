@@ -245,6 +245,14 @@ student. The format of this file looks like:
 
 This can be used to verify a student is submitting at the right time or from the right location.
 
+Note that the "lecture" value may be `null`, while the "section" value will always be a string. The Autolab developers
+defined the schema as follows:
+
+```
+t.string "lecture"
+t.string "section", default: ""
+```
+
 A sample grader that simply prints this information is available in `sample_files/autograder2`.
 
 ## Embedded Forms
