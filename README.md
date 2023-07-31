@@ -61,9 +61,10 @@ This repository will serve as a guide, primarily for instructors, on how to use 
             * [Setting an Arbitrary Score](Create%20an%20autograder.md#setting-an-arbitrary-score)
     * [Formatted Feedback](Create%20an%20autograder.md#formatted-feedback)
     * [Embedded Forms](Create%20an%20autograder.md#embedded-forms)
-      * [Create the HTML Form](Create%20an%20autograder.md#create-the-html-form)
-      * [Upload the HTML Form](Create%20an%20autograder.md#upload-the-html-form)
-      * [Considerations for the Autograder](Create%20an%20autograder.md#considerations-for-the-autograder)
+        * [Create the HTML Form](Create%20an%20autograder.md#create-the-html-form)
+        * [Upload the HTML Form](Create%20an%20autograder.md#upload-the-html-form)
+        * [Considerations for the Autograder](Create%20an%20autograder.md#considerations-for-the-autograder)
+        * [Embedded form with file submission](Create%20an%20autograder.md#embedded-form-with-file-submission)
 
 For IT staff, there's also a private internal documentation repository available
 here: <https://github.com/UB-CSE-IT/Autolab-Internal-Docs>.
@@ -80,6 +81,7 @@ different situations.
 * [autograder2](sample_files/autograder2) demonstrates how to use the settings.json file to get metadata about the
   submission.
 * [autograder3](sample_files/autograder3) demonstrates how to grade an embedded form submission.
+* [autograder4](sample_files/autograder4) demonstrates how to create an embedded form that allows submitting a file.
 
 ## Navigation on GitHub
 

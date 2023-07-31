@@ -269,6 +269,24 @@ element.
 
 The `name` attribute on each input is the key that will be used in the JSON file.
 
+The following names are **reserved** (for settings.json metadata and Rails internals) and cannot be used:
+
+* ubit
+* ip
+* lecture
+* section
+* timestamp
+* version
+* controller
+* action
+* submission
+* utf8
+* authenticity_token
+* submission_file
+* integrity_checkbox
+* course_name
+* name
+
 Note that the label MUST come after the input, or it will be rendered incorrectly. This is worthy of mention because
 it's different from the [Mozilla docs](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/label).
 
@@ -308,8 +326,11 @@ practice.
 Your grader will receive a file with the following contents:
 
 ```
-{"utf8":"✓","authenticity_token":"60Na...KIRCA==","submission[embedded_quiz_form_answer]":"","q1":"apple","q2":"Yes","q3":"99","integrity_checkbox":"1"}
+{"q1":"apple","q2":"Yes","q3":"99"}
 ```
+
+(Updated July 31, 2023: Extra fields professors don't care about have been removed. The output is now a very clean JSON
+map.)
 
 Your grader will need to parse that JSON and grade the submission accordingly. Notice it will contain non-ASCII
 characters. See the note below about encodings.
@@ -332,3 +353,27 @@ The feedback for our sample grader looks like this. Note that these are differen
 * Also test submitting a blank form.
 
 There's more information about embedded forms here: <https://docs.autolabproject.com/features/embedded-forms/>
+
+### Embedded form with file submission
+
+If you need students to submit a file with an embedded form, create an embedded form with a file input named
+"submission_file".
+
+```html
+<input type="file" name="submission_file" required>
+```
+
+This file will become the student's handin, and their form data will become part of their settings.json metadata.
+
+If a file is not attached, it will be treated as a regular embedded form submission; the form data will be the handin
+file, which will probably cause your autograder to fail. The `required` HTML attribute can prevent this from occurring
+accidentally.
+
+To preserve backwards compatibility, the form data is merged into the root of the settings.json map. A sample
+settings.json when creating a form with a file looks like this:
+
+```
+{"q1":"This is my answer to question 1","ubit":"username","ip":"1.1.1.1","lecture":null,"section":"","timestamp":"2023-07-31T15:43:27.000-04:00","version":331}
+```
+
+You can see a full example of this in `sample_files/autograder4`.
