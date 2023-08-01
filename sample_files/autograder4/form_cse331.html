@@ -3,7 +3,7 @@
 
     <label>
         Language:
-        <select name="Language">
+        <select name="Language" required>
             <option value="Python">Python</option>
             <option value="Java">Java</option>
             <option value="C++">C++</option>
@@ -13,18 +13,18 @@
 
     <label>
         Max Inputs:
-        <input type="number" min="0" max="10" name="MaxInputs"/>
+        <input type="number" min="0" max="10" name="MaxInputs" required/>
     </label>
     <br>
 
     <label>
         Sources:
-        <input type="text" name="Sources"/>
+        <input type="text" name="Sources" required/>
     </label>
     <br>
 
     <label>
         Upload your code here:
-        <input type="file" name="submission_file"/>
+        <input type="file" name="submission_file" required/>
     </label>
 </div>

@@ -367,7 +367,7 @@ This file will become the student's handin, and their form data will become part
 
 If a file is not attached, it will be treated as a regular embedded form submission; the form data will be the handin
 file, which will probably cause your autograder to fail. The `required` HTML attribute can prevent this from occurring
-accidentally.
+accidentally. This is only client-side validation, so it's not a substitute for proper validation in your autograder.
 
 To preserve backwards compatibility, the form data is merged into the root of the settings.json map. A sample
 settings.json when creating a form with a file looks like this:
