@@ -377,3 +377,6 @@ settings.json when creating a form with a file looks like this:
 ```
 
 You can see a full example of this in `sample_files/autograder4`.
+
+Note: There isn't a convenient way to access the form data after submitting. If you want students, TAs, or yourself to
+be able to review the form data later, it's recommended to print it in the autograder feedback.
