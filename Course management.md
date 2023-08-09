@@ -12,7 +12,7 @@ button to jump immediately to the gradebook.
 
 If you're an instructor or CA, you'll see a badge on the top right of the course. Above, you can see that I'm an
 instructor since I just created this course by following the steps
-in [Getting Started > Create a Course](Getting started.md#create-a-course). Below is what a CA will see. We'll cover
+in [Getting Started > Create a Course](Getting%20started.md#create-a-course). Below is what a CA will see. We'll cover
 enrolling students, CAs, and additional instructors shortly.
 
 ![Course assistant badge](screenshots/course_assistant_badge.png)

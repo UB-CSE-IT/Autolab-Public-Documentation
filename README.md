@@ -64,7 +64,7 @@ This repository will serve as a guide, primarily for instructors, on how to use 
         * [Create the HTML Form](Create%20an%20autograder.md#create-the-html-form)
         * [Upload the HTML Form](Create%20an%20autograder.md#upload-the-html-form)
         * [Considerations for the Autograder](Create%20an%20autograder.md#considerations-for-the-autograder)
-        * [Embedded form with file submission](Create%20an%20autograder.md#embedded-form-with-file-submission)
+        * [Embedded form with file submission (UB Feature)](Create%20an%20autograder.md#embedded-form-with-file-submission--ub-feature-)
 
 For IT staff, there's also a private internal documentation repository available
 here: <https://github.com/UB-CSE-IT/Autolab-Internal-Docs>.
