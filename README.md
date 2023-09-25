@@ -73,6 +73,12 @@ This repository will serve as a guide, primarily for instructors, on how to use 
   * [Create a grading assignment](Grader%20Assignment%20Tool.md#create-a-grading-assignment)
   * [View a grading assignment](Grader%20Assignment%20Tool.md#view-a-grading-assignment)
   * [Archive a grading assignment](Grader%20Assignment%20Tool.md#archive-a-grading-assignment)
+* [UB Course Sections](UB%20course%20sections.md)
+  * [Configure your course sections](UB%20course%20sections.md#configure-your-course-sections)
+    * [Magic import](UB%20course%20sections.md#magic-import)
+    * [Create a section manually](UB%20course%20sections.md#create-a-section-manually)
+  * [Configure an assessment](UB%20course%20sections.md#configure-an-assessment)
+  * [How it looks to students](UB%20course%20sections.md#how-it-looks-to-students)
 
 For IT staff, there's also a private internal documentation repository available
 here: <https://github.com/UB-CSE-IT/Autolab-Internal-Docs>.
