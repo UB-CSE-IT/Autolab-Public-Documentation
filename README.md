@@ -65,6 +65,14 @@ This repository will serve as a guide, primarily for instructors, on how to use 
         * [Upload the HTML Form](Create%20an%20autograder.md#upload-the-html-form)
         * [Considerations for the Autograder](Create%20an%20autograder.md#considerations-for-the-autograder)
         * [Embedded form with file submission (UB Feature)](Create%20an%20autograder.md#embedded-form-with-file-submission--ub-feature-)
+* [Grader Assignment Tool](Grader%20Assignment%20Tool.md)
+  * [Accessing the GAT](Grader%20Assignment%20Tool.md#accessing-the-gat)
+  * [Import your course from Autolab](Grader%20Assignment%20Tool.md#import-your-course-from-autolab)
+  * [Manage people](Grader%20Assignment%20Tool.md#manage-people)
+  * [Manage conflicts of interest](Grader%20Assignment%20Tool.md#manage-conflicts-of-interest)
+  * [Create a grading assignment](Grader%20Assignment%20Tool.md#create-a-grading-assignment)
+  * [View a grading assignment](Grader%20Assignment%20Tool.md#view-a-grading-assignment)
+  * [Archive a grading assignment](Grader%20Assignment%20Tool.md#archive-a-grading-assignment)
 
 For IT staff, there's also a private internal documentation repository available
 here: <https://github.com/UB-CSE-IT/Autolab-Internal-Docs>.
