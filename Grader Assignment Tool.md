@@ -46,11 +46,11 @@ You can assign how many hours each teaching assistant will work here. This is ef
 students they'll be assigned, so it doesn't strictly need to be in hours. You can assign yourself 0 hours to not
 be assigned any students to grade.
 
+The whole GAT application is designed to feel modern, so you can type in a number and it will automatically save.
+
 If you change your course roster on Autolab, you can click the "Sync Roster from Autolab" button to update the GAT
 roster. This will update both names and roles. Name updates work retroactively after creating a grading assignment.
 If new graders are added or removed, it will NOT update previously generated grading assignments.
-
-The whole GAT application is designed to feel modern, so you can type in a number and it will automatically save.
 
 ## Manage conflicts of interest
 

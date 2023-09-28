@@ -33,7 +33,7 @@ course database.
 
 ![img.png](screenshots/cs_magic_import.png)
 
-In this case, this sample course doesn't really exist, so we'll have to create the sections manually.
+In this case, this sample course doesn't really exist, so we'll need to create the sections manually.
 
 ### Create a section manually
 
