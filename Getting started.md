@@ -82,3 +82,50 @@ instructor would like separate Autolab courses for the same course in the same s
 We've found that most instructors prefer to share a single course.
 
 ![Create course error](screenshots/portal_create_course_error_example.png)
+
+### Custom course URL conventions
+
+The URL conventions for automatically generated courses are described [above](#about-course-urls).
+When courses are created manually, by contacting CSE IT, we still follow certain conventions for consistency.
+
+#### Multiple Autolab courses for a single UB course
+
+- Faculty may request additional Autolab courses for different sections of a UB course.
+- The first course should be created with the Self-service Portal like normal.
+    - E.g., `cse442-f23`
+- Subsequent courses can be created by contacting CSE IT.
+    - The first 10 characters of the course URL are the same as the first course. This is parsed by automated tools,
+      such as the "magic importer" in the course sections tool.
+    - Reasonable suffixes are appended to the end of the standard course URL, such as section letters.
+        - E.g., `cse442-f23b`
+        - E.g., `cse442-f23c`
+
+#### Individual test courses
+
+- CSE faculty and staff may request an Autolab course for testing purposes by contacting CSE IT.
+- The course URL will be your username prefixed with `individual-`.
+    - E.g., `individual-username`
+- Only one Autolab course will be created per person.
+
+#### Club courses
+
+- Faculty advisors of
+  an [officially recognized UB CSE/SEAS club](https://engineering.buffalo.edu/computer-science-engineering/people/professional-and-student-organizations.html)
+  may request an Autolab course for the club by contacting CSE IT.
+- The course URL will be the club name or abbreviation prefixed with `club-`.
+    - E.g., `club-makeopensource`
+- Only one Autolab course is allowed per club.
+- Club courses may be used for testing Autolab or for actual club activities.
+
+#### Project development test courses
+
+- Faculty, staff, and personally approved students may request an Autolab course for development purposes by contacting
+  CSE IT.
+- This is intended for developing external Autolab integrations, such as IDE extensions and custom apps that use the
+  Autolab API.
+- The course URL will be your project name prefixed with `test-` followed by the semester.
+    - E.g., `test-myproject-f23`
+- Only one Autolab course will be created per project.
+- If a project spans multiple semesters, the course URL will not change. The semester indicates when the project was
+  started.
+- Since this is for testing purposes, you should not store any real student data in the course.
