@@ -240,7 +240,7 @@ Along with the student's submission, you'll receive a JSON file named `settings.
 student. The format of this file looks like:
 
 ```
-{"ubit":"username","ip":"1.1.1.1","lecture":"","section":"","timestamp":"2023-07-11T13:32:00.000-04:00","version":8}
+{"ubit":"username","ip":"1.1.1.1","lecture":"","section":"","timestamp":"2023-07-11T13:32:00.000-04:00","version":8,"github_repo":"username-repo","github_branch":"main","github_commit":"1234abc"}}
 ```
 
 This can be used to verify a student is submitting at the right time or from the right location.
@@ -252,6 +252,8 @@ defined the schema as follows:
 t.string "lecture"
 t.string "section", default: ""
 ```
+
+GitHub submission metadata was added in September 2024. When a submission is NOT made from GitHub, "github_repo", "github_branch", and "github_commit" will be `null`.
 
 A sample grader that simply prints this information is available in `sample_files/autograder2`.
 
@@ -286,6 +288,9 @@ The following names are **reserved** (for settings.json metadata and Rails inter
 * integrity_checkbox
 * course_name
 * name
+* github_repo
+* github_branch
+* github_commit
 
 Note that the label MUST come after the input, or it will be rendered incorrectly. This is worthy of mention because
 it's different from the [Mozilla docs](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/label).
@@ -373,7 +378,7 @@ To preserve backwards compatibility, the form data is merged into the root of th
 settings.json when creating a form with a file looks like this:
 
 ```
-{"q1":"This is my answer to question 1","ubit":"username","ip":"1.1.1.1","lecture":null,"section":"","timestamp":"2023-07-31T15:43:27.000-04:00","version":331}
+{"q1":"This is my answer to question 1","ubit":"username","ip":"1.1.1.1","lecture":null,"section":"","timestamp":"2023-07-31T15:43:27.000-04:00","version":331,"github_repo":null,"github_branch":null,"github_commit":null}}
 ```
 
 You can see a full example of this in `sample_files/autograder4`.
