@@ -48,9 +48,8 @@ From the `Basic` tab, scroll down to the "Modules Used" section, and click the p
 1. Choose a VM image to use. This is the Docker image that your container will be built from. The `autograding_image` is
    a good choice for Python projects.
     * You can see all the Dockerfiles for Autolab's VM images in our
-      previous [Tango Repository](https://github.com/UBAutograding/Tango/tree/master/vmms). If you need a custom image,
-      you can create one and make a pull request to that Tango repository. Then, contact CSE IT to build the image and
-      add it to Autolab. Try to use an existing image if possible.
+      [Autograding Images repository](https://github.com/UB-CSE-IT/Autograding-Images). If you need a custom image,
+      see [Create an autograding image](Create%20an%20autograding%20image.md). Try to use an existing image if possible.
 2. Choose the timeout for the autograder. This is the maximum amount of time your autograder will be allowed to run. If
    grading takes longer than this, the student will receive partial feedback and an error saying that Autolab couldn't
    parse the output from your grader.
