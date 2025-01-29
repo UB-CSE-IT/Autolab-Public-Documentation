@@ -76,34 +76,34 @@ This repository will serve as a guide, primarily for instructors, on how to use 
 ### [Grader Assignment Tool](Grader%20Assignment%20Tool.md)
 
 * [Accessing the GAT](Grader%20Assignment%20Tool.md#accessing-the-gat)
-* [Import your course from Autolab](Grader%20Assignment%20Tool.md#import-your-course-from-autolab)
-* [Manage people](Grader%20Assignment%20Tool.md#manage-people)
-* [Manage conflicts of interest](Grader%20Assignment%20Tool.md#manage-conflicts-of-interest)
-* [Create a grading assignment](Grader%20Assignment%20Tool.md#create-a-grading-assignment)
-* [View a grading assignment](Grader%20Assignment%20Tool.md#view-a-grading-assignment)
-* [Archive a grading assignment](Grader%20Assignment%20Tool.md#archive-a-grading-assignment)
+* [Import Your Course from Autolab](Grader%20Assignment%20Tool.md#import-your-course-from-autolab)
+* [Manage People](Grader%20Assignment%20Tool.md#manage-people)
+* [Manage Conflicts of Interest](Grader%20Assignment%20Tool.md#manage-conflicts-of-interest)
+* [Create a Grading Assignment](Grader%20Assignment%20Tool.md#create-a-grading-assignment)
+* [View a Grading Assignment](Grader%20Assignment%20Tool.md#view-a-grading-assignment)
+* [Archive a Grading Assignment](Grader%20Assignment%20Tool.md#archive-a-grading-assignment)
 
 ### [UB Course Sections](UB%20course%20sections.md)
 
-* [Configure your course sections](UB%20course%20sections.md#configure-your-course-sections)
-    * [Magic import](UB%20course%20sections.md#magic-import)
-    * [Create a section manually](UB%20course%20sections.md#create-a-section-manually)
-* [Configure an assessment](UB%20course%20sections.md#configure-an-assessment)
-* [How it looks to students](UB%20course%20sections.md#how-it-looks-to-students)
+* [Configure your Course Sections](UB%20course%20sections.md#configure-your-course-sections)
+    * [Magic Import](UB%20course%20sections.md#magic-import)
+    * [Create a Section Manually](UB%20course%20sections.md#create-a-section-manually)
+* [Configure an Assessment](UB%20course%20sections.md#configure-an-assessment)
+* [How it Looks to Students](UB%20course%20sections.md#how-it-looks-to-students)
 
 ### [Create an Autograding Image](Create%20an%20autograding%20image.md)
 
-* [Creating your own image](Create%20an%20autograding%20image.md#creating-your-own-image)
-* [Testing your image](Create%20an%20autograding%20image.md#testing-your-image)
-* [Add your image to Autolab](Create%20an%20autograding%20image.md#add-your-image-to-autolab)
+* [Creating your Own Image](Create%20an%20autograding%20image.md#creating-your-own-image)
+* [Testing your Image](Create%20an%20autograding%20image.md#testing-your-image)
+* [Add your Image to Autolab](Create%20an%20autograding%20image.md#add-your-image-to-autolab)
 
 ### [The Autograding Process](The%20autograding%20process.md)
 
-* [Sending the job to Tango](The%20autograding%20process.md#sending-the-job-to-tango)
-* [Tango queues the job](The%20autograding%20process.md#tango-queues-the-job)
-* [Running the job](The%20autograding%20process.md#running-the-job)
+* [Sending the Job to Tango](The%20autograding%20process.md#sending-the-job-to-tango)
+* [Tango Queues the Job](The%20autograding%20process.md#tango-queues-the-job)
+* [Running the Job](The%20autograding%20process.md#running-the-job)
 * [Autodriver](The%20autograding%20process.md#autodriver)
-* [After the job is finished](The%20autograding%20process.md#after-the-job-is-finished)
+* [After the Job is Finished](The%20autograding%20process.md#after-the-job-is-finished)
 
 For IT staff, there's also a private internal documentation repository available
 here: <https://github.com/UB-CSE-IT/Autolab-Internal-Docs>.

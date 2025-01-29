@@ -1,4 +1,4 @@
-# The autograding process
+# The Autograding Process
 
 Autolab follows a complex procedure for running an autograding job. Jobs are executed in sandboxed containers to ensure they can't interfere with shared resources and distributed across multiple servers to handle a large quantity of submissions.
 

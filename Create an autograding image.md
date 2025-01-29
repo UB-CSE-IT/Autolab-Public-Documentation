@@ -1,4 +1,4 @@
-# Create an autograding image
+# Create an Autograding Image
 
 An autograding image is a template for the sandboxed environment that submissions will run in. It defines which operating system will be used and which software is available while running an autograder. It should not contain any project-specific information.
 
