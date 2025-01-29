@@ -94,7 +94,7 @@ It does a lot, but the most important parts are:
 
 The main takeaway is that the four files (your Makefile, your autograder, the submission, and the submission metadata) are in `/home/autograde/autolab`, and Make will be called in that directory as the `autograde` user.
 
-### After the job is finished
+## After the job is finished
 
 After a job finishes, Tango:
 
