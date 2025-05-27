@@ -67,7 +67,7 @@ card. Most other options can be changed later if necessary.
 ### Success
 
 If everything went well, you'll see a success message. You can click `Go to Course Page` to continue in Autolab. You can
-continue configuring your course with info in the [Course Management](Course%20management.md) guide.
+continue configuring your course with info in the [Course Management](Course management.md) guide.
 
 ![Create course success](screenshots/portal_create_course_success.png)
 

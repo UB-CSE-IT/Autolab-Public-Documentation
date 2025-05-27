@@ -11,7 +11,7 @@ in the assessment.
 
 ### Create an assessment
 
-Start by creating an assessment as described in the [Create an Assessment](Create%20an%20assessment.md) guide.
+Start by creating an assessment as described in the [Create an Assessment](Create an assessment.md) guide.
 
 From the assessment page, click `Edit assessment`.
 
@@ -49,7 +49,7 @@ From the `Basic` tab, scroll down to the "Modules Used" section, and click the p
    a good choice for Python projects.
     * You can see all the Dockerfiles for Autolab's VM images in our
       [Autograding Images repository](https://github.com/UB-CSE-IT/Autograding-Images). If you need a custom image,
-      see [Create an autograding image](Create%20an%20autograding%20image.md). Try to use an existing image if possible.
+      see [Create an autograding image](Create an autograding image.md). Try to use an existing image if possible.
 2. Choose the timeout for the autograder. This is the maximum amount of time your autograder will be allowed to run. If
    grading takes longer than this, the student will receive partial feedback and an error saying that Autolab couldn't
    parse the output from your grader.
@@ -283,7 +283,7 @@ The following names are **reserved** (for settings.json metadata and Rails inter
 * submission
 * utf8
 * authenticity_token
-* submission_file (only allowed for [an embedded form with a file submission](#embedded-form-with-file-submission--ub-feature-))
+* submission_file (only allowed for [an embedded form with a file submission](#embedded-form-with-file-submission-ub-feature))
 * integrity_checkbox
 * course_name
 * name

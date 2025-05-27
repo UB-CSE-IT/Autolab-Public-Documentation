@@ -1,0 +1,40 @@
+site_name: UB Autolab Documentation
+site_url: https://napps.cse.buffalo.edu/docs/autolab
+dev_addr: 127.0.0.1:7590
+extra:
+  analytics:
+    provider: matomo
+theme:
+  name: material
+  custom_dir: overrides
+  logo: assets/logo.svg
+  favicon: assets/favicon.ico
+  palette:
+    # Light mode
+    - scheme: default
+      primary: custom
+      accent: custom
+      media: "(prefers-color-scheme: light)"
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    # Dark mode
+    - scheme: slate
+      primary: custom
+      accent: custom
+      media: "(prefers-color-scheme: dark)"
+      toggle:
+        icon: material/weather-night
+        name: Switch to light mode
+extra_css:
+  - stylesheets/extras.css
+nav:
+  - "index.md"
+  - "Getting started.md"
+  - "Course management.md"
+  - "Create an assessment.md"
+  - "Create an autograder.md"
+  - "Grader Assignment Tool.md"
+  - "UB course sections.md"
+  - "Create an autograding image.md"
+  - "The autograding process.md"

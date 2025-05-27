@@ -4,13 +4,13 @@ An autograding image is a template for the sandboxed environment that submission
 
 If you're using a common tech stack, there's a good chance you won't need to create a custom image. You can see all the current images in our [Autograding Images repository](https://github.com/UB-CSE-IT/Autograding-Images).
 
-Before creating your own image, it's a good idea to be somewhat familiar with [The autograding process](The%20autograding%20process.md).
+Before creating your own image, it's a good idea to be somewhat familiar with [The autograding process](The autograding process.md).
 
 ## Creating your own image
 
 I'll walk through the process of a minimal Python grading image. You can also review a full example Dockerfile [here](https://github.com/UB-CSE-IT/Autograding-Images/blob/main/dockerfiles/Dockerfile_autograding_image).
 
-Create a [Dockerfile](https://docs.docker.com/reference/dockerfile/). This will contain commands to initially set up the sandboxed environment for grading. It should NOT contain any project-specific details; that is left to your [autograder](Create%20an%20autograder.md).
+Create a [Dockerfile](https://docs.docker.com/reference/dockerfile/). This will contain commands to initially set up the sandboxed environment for grading. It should NOT contain any project-specific details; that is left to your [autograder](Create an autograder.md).
 
 The first line needs to specify a base image that you're starting from. The latest LTS version of Ubuntu is usually a good choice. Add the `LABEL org.opencontainers.image.authors` line with your name/email address. Formatting conventions are more detailed in the [Autograding Images repository](https://github.com/UB-CSE-IT/Autograding-Images).
 
@@ -19,7 +19,7 @@ FROM ubuntu:24.04
 LABEL org.opencontainers.image.authors="Nicholas Myers"
 ```
 
-Then, install the necessary [Autodriver](The%20autograding%20process.md#autodriver) by pasting this exact block into your Dockerfile:
+Then, install the necessary [Autodriver](The autograding process.md#autodriver) by pasting this exact block into your Dockerfile:
 
 ```dockerfile
 # Install autodriver
@@ -61,7 +61,7 @@ RUN python3 --version
 
 **Important**: Your final `WORKDIR` **MUST** be `/home`! If you changed it after installing the Autodriver, add `WORKDIR /home` to the end of the file.
 
-Keep in mind that when a submission runs, the four files (your Makefile, your autograder, the submission, and the submission metadata) are in /home/autograde/autolab, and Make will be called in that directory as the autograde user. This doesn't affect this demo Dockerfile, but it may matter for more advanced setups. This is further explained in [The autograding process](The%20autograding%20process.md).
+Keep in mind that when a submission runs, the four files (your Makefile, your autograder, the submission, and the submission metadata) are in /home/autograde/autolab, and Make will be called in that directory as the autograde user. This doesn't affect this demo Dockerfile, but it may matter for more advanced setups. This is further explained in [The autograding process](The autograding process.md).
 
 ## Testing your image
 
@@ -79,7 +79,7 @@ You can forcefully rebuild the entire image with the `--no-cache` option if chan
 
 Create a directory that mimics how Tango will arrange the files.
 
-For example: in the `/path/to/directory` directory, I'll place:  `Makefile`, `handin.py`, and `autograde.tar`. You could also add `settings.json` if your grader depends on it. Autolab will always provide these four files. (The file name of the student submission is configured in your [handin settings](Create%20an%20assessment.md#handin). The Makefile and autograde.tar come from your [autograder](Create%20an%20autograder.md).)
+For example: in the `/path/to/directory` directory, I'll place:  `Makefile`, `handin.py`, and `autograde.tar`. You could also add `settings.json` if your grader depends on it. Autolab will always provide these four files. (The file name of the student submission is configured in your [handin settings](Create an assessment.md#handin). The Makefile and autograde.tar come from your [autograder](Create an autograder.md).)
 
 To mimic running a job the way Tango will, use the following command. 
 * Update `cse_123` to your actual image name.
@@ -89,7 +89,7 @@ To mimic running a job the way Tango will, use the following command.
 docker run --rm -v /path/to/directory/:/home/mount cse_123 sh -c 'cp -r mount/* autolab/; su autolab -c "autodriver -u 100 -f 104857600 -t 20 -o 1024000 autolab > output/feedback 2>&1"; cp output/feedback mount/feedback'
 ```
 
-This complicated command is explained in depth in [The autograding process](The%20autograding%20process.md#running-the-job). (Though, it's slightly different here for your convenience.)
+This complicated command is explained in depth in [The autograding process](The autograding process.md#running-the-job). (Though, it's slightly different here for your convenience.)
 
 After running this command, view the autograder output from the `/path/to/directory/feedback` file.
 
