@@ -1,0 +1,1073 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://napps.cse.buffalo.edu/docs/autolab/Create%20an%20assessment/">
+      
+      
+        <link rel="prev" href="../Course%20management/">
+      
+      
+        <link rel="next" href="../Create%20an%20autograder/">
+      
+      
+      <link rel="icon" href="../assets/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
+    
+    
+      
+        <title>Create an Assessment - UB Autolab Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.342714a4.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extras.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  <!-- TODO -->
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#create-an-assessment" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="UB Autolab Documentation" class="md-header__button md-logo" aria-label="UB Autolab Documentation" data-md-component="logo">
+      
+  <img src="../assets/logo.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            UB Autolab Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Create an Assessment
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="UB Autolab Documentation" class="md-nav__button md-logo" aria-label="UB Autolab Documentation" data-md-component="logo">
+      
+  <img src="../assets/logo.svg" alt="logo">
+
+    </a>
+    UB Autolab Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Introduction
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Getting%20started/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Getting Started
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Course%20management/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Course Management
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Create an Assessment
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Create an Assessment
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#install-assessment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Install Assessment
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Install Assessment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#import-from-tarball" class="md-nav__link">
+    <span class="md-ellipsis">
+      Import from tarball
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#side-note-about-import-from-file-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      Side note about "import from file system"
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-from-scratch" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create from scratch
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#assessment-page" class="md-nav__link">
+    <span class="md-ellipsis">
+      Assessment Page
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#edit-assessment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Edit Assessment
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Edit Assessment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#basic" class="md-nav__link">
+    <span class="md-ellipsis">
+      Basic
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#handin" class="md-nav__link">
+    <span class="md-ellipsis">
+      Handin
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-handin-filename-field-is-important" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Handin filename field is important
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#penalties" class="md-nav__link">
+    <span class="md-ellipsis">
+      Penalties
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#problems" class="md-nav__link">
+    <span class="md-ellipsis">
+      Problems
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#advanced" class="md-nav__link">
+    <span class="md-ellipsis">
+      Advanced
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#add-problems" class="md-nav__link">
+    <span class="md-ellipsis">
+      Add Problems
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#make-a-submission" class="md-nav__link">
+    <span class="md-ellipsis">
+      Make a Submission
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#view-annotate-and-grade-a-submission" class="md-nav__link">
+    <span class="md-ellipsis">
+      View, Annotate, and Grade a Submission
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="View, Annotate, and Grade a Submission">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#view-a-submission" class="md-nav__link">
+    <span class="md-ellipsis">
+      View a submission
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#annotate-a-submission" class="md-nav__link">
+    <span class="md-ellipsis">
+      Annotate a submission
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#assign-a-grade-by-annotation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Assign a grade by annotation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stacking-annotations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Stacking annotations
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Create%20an%20autograder/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Create an Autograder
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Grader%20Assignment%20Tool/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Grader Assignment Tool (GAT)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../UB%20course%20sections/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    UB Course Sections
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Create%20an%20autograding%20image/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Create an Autograding Image
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../The%20autograding%20process/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    The Autograding Process
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#install-assessment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Install Assessment
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Install Assessment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#import-from-tarball" class="md-nav__link">
+    <span class="md-ellipsis">
+      Import from tarball
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#side-note-about-import-from-file-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      Side note about "import from file system"
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-from-scratch" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create from scratch
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#assessment-page" class="md-nav__link">
+    <span class="md-ellipsis">
+      Assessment Page
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#edit-assessment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Edit Assessment
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Edit Assessment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#basic" class="md-nav__link">
+    <span class="md-ellipsis">
+      Basic
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#handin" class="md-nav__link">
+    <span class="md-ellipsis">
+      Handin
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-handin-filename-field-is-important" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Handin filename field is important
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#penalties" class="md-nav__link">
+    <span class="md-ellipsis">
+      Penalties
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#problems" class="md-nav__link">
+    <span class="md-ellipsis">
+      Problems
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#advanced" class="md-nav__link">
+    <span class="md-ellipsis">
+      Advanced
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#add-problems" class="md-nav__link">
+    <span class="md-ellipsis">
+      Add Problems
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#make-a-submission" class="md-nav__link">
+    <span class="md-ellipsis">
+      Make a Submission
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#view-annotate-and-grade-a-submission" class="md-nav__link">
+    <span class="md-ellipsis">
+      View, Annotate, and Grade a Submission
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="View, Annotate, and Grade a Submission">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#view-a-submission" class="md-nav__link">
+    <span class="md-ellipsis">
+      View a submission
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#annotate-a-submission" class="md-nav__link">
+    <span class="md-ellipsis">
+      Annotate a submission
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#assign-a-grade-by-annotation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Assign a grade by annotation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stacking-annotations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Stacking annotations
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="create-an-assessment">Create an Assessment</h1>
+<p>An Autolab assessment is a graded assignment that students can hand in. They can be used for homework, labs, exams, and
+more. They can be manually graded or automatically graded.</p>
+<h2 id="install-assessment">Install Assessment</h2>
+<p>Navigate to your course dashboard and click <code>Install Assessment</code>.</p>
+<p><img alt="Dashboard install assessment" src="../screenshots/dashboard_install_assessment.png" /></p>
+<p>You'll see the various ways you can add an assessment to your course.</p>
+<p><img alt="Install assessment options" src="../screenshots/install_assessment_options.png" /></p>
+<h3 id="import-from-tarball">Import from tarball</h3>
+<p>If you have an assessment from a previous semester, you can export it from the previous course as a tarball and then
+import it here. Just click <code>Browse</code> and select the tarball.</p>
+<blockquote>
+<h3 id="side-note-about-import-from-file-system">Side note about "import from file system"</h3>
+<p>This feature is only accessible to users who have direct access to the Autolab server, which essentially means we
+don't use it. If there's a particular need for this, contact CSE IT.</p>
+</blockquote>
+<h3 id="create-from-scratch">Create from scratch</h3>
+<p>This is how assessments should be initially created. Click the "Assessment Builder" link to begin.</p>
+<ol>
+<li>Choose the assessment name, which is what students will see. Naming it something more specific than "Homework 1" is
+   recommended. Something like "Homework 1: HTTP Basics" may be more identifiable to students.</li>
+<li>Choose the assessment category. If you already have categories defined, you can choose one of those from the
+   dropdown. Otherwise, you can create a new category by typing in a new name. Categories are used to group assessments.
+   Popular categories include Homework, Labs, Exams, and Projects. Separating assessments into categories is useful for
+   weighted grading if you want to use some advanced features of Autolab. Otherwise, it's just good for organization.</li>
+<li>Click <code>Create Assessment</code>.</li>
+</ol>
+<p>You can change any of these settings later, except for the URL, which will be automatically generated based on the
+display name you choose.</p>
+<p><img alt="Assessment builder" src="../screenshots/assessment_builder.png" /></p>
+<h2 id="assessment-page">Assessment Page</h2>
+<p>After creating an assessment, you'll be brought to the assessment page. You have a lot of options here.</p>
+<p><img alt="Assessment page" src="../screenshots/assessment_page.png" /></p>
+<h2 id="edit-assessment">Edit Assessment</h2>
+<p>Let's start by looking at everything you can customize about the assessment. Click <code>Edit Assessment</code> at the top of the "
+Admin Options." Here's an overview.</p>
+<h3 id="basic">Basic</h3>
+<p>The "basic" tab allows you to edit the values you chose while creating the assessment and change some other display
+options. They're fairly self-explanatory with the help text below each option. The ability to upload a custom Ruby
+file for the assessment is advanced, so you can ignore that for now.</p>
+<p><img alt="Assessment basic settings" src="../screenshots/assessment_basic_settings.png" /></p>
+<h3 id="handin">Handin</h3>
+<p>The "handin" tab allows you to configure the start, due, end, and grading deadline dates for the assessment. You can
+choose if students are allowed to submit directly from a GitHub repo, change the handin filename, set the maximum
+submission size, and disable handins. Each of these is explained in the help text below the option.</p>
+<p><img alt="Assessment handin settings" src="../screenshots/assessment_handin_settings.png" /></p>
+<blockquote>
+<h3 id="the-handin-filename-field-is-important">The <code>Handin filename</code> field is important</h3>
+<ul>
+<li>It doesn't matter what the file is named on a student's computer; it will be renamed to the handin filename when
+    they upload it.</li>
+<li>If you're using an automatic grader, this is the name of the file that will be accessible in the grading VM.</li>
+<li>Students will be warned before uploading a file that doesn't match the handin filename's extension.</li>
+</ul>
+</blockquote>
+<h3 id="penalties">Penalties</h3>
+<p>The "penalties" tab allows you to configure the maximum submissions limit and reduce scores on late submissions.</p>
+<p><img alt="Assessment penalties settings" src="../screenshots/assessment_penalties_settings.png" /></p>
+<h3 id="problems">Problems</h3>
+<p>The "problems" tab allows you to add problems to the assessment, which are the actual "questions" students will answer
+and receive points for. We'll add some to our new assessment after this overview.</p>
+<p><img alt="Assessment problems settings" src="../screenshots/assessment_problems_settings.png" /></p>
+<h3 id="advanced">Advanced</h3>
+<p>The "advanced" tab allows you to configure student groups and use an embedded HTML form for submissions.</p>
+<p>The official Autolab <a href="https://docs.autolabproject.com/features/embedded-forms/">Embedded Forms documentation</a> is a good
+reference.</p>
+<p><img alt="Assessment advanced settings" src="../screenshots/assessment_advanaced_settings.png" /></p>
+<h2 id="add-problems">Add Problems</h2>
+<p>Now that we've looked at the assessment settings, let's add some problems. Navigate to the "Problems" tab and
+click <code>Add Problem</code>.</p>
+<p><img alt="Add problems arrow" src="../screenshots/add_problems_arrow.png" /></p>
+<ol>
+<li>Name the problem. This is what students will see. You'll also use this name in your autograder output.</li>
+<li>Set the maximum score possible for this problem.</li>
+<li>Click <code>Save Problem</code>. All settings can be changed later.</li>
+</ol>
+<p>You can optionally set a description or make the problem optional.</p>
+<p><img alt="Edit problem" src="../screenshots/edit_problem.png" /></p>
+<p>I've gone ahead and created another problem, so we can see both in the problems list.</p>
+<p><img alt="Problems added" src="../screenshots/problems_added.png" /></p>
+<p>Now the assessment is ready for students to submit to. We'll need to get some student submissions before we can grade
+them. You can also make submissions as an instructor, which is useful for testing.</p>
+<h2 id="make-a-submission">Make a Submission</h2>
+<p>(I've updated the assessment start and end date so that we can make a submission in the expected timeframe and not have
+to deal with late days. I also updated the handin filename to "handin.pdf" to indicate that we want a PDF submission
+from students.)</p>
+<p>Navigate to the assessment page.</p>
+<ol>
+<li>Select (or drag and drop) a file to upload.</li>
+<li>Affirm that you're complying with the academic integrity policy.</li>
+<li>Click <code>Submit</code>.</li>
+</ol>
+<p><img alt="Handin PDF" src="../screenshots/handin_pdf.png" /></p>
+<p>You'll be redirected to the list of your submissions.</p>
+<p><img alt="PDF submissions list" src="../screenshots/pdf_submissions_list.png" /></p>
+<h2 id="view-annotate-and-grade-a-submission">View, Annotate, and Grade a Submission</h2>
+<h3 id="view-a-submission">View a submission</h3>
+<p>To view, annotate, and/or grade a submission, click the <code>View Source</code> button on it.</p>
+<p><img alt="View source" src="../screenshots/view_source.png" /></p>
+<p>You'll be able to see the submission rendered in the browser. You can also download the submission and navigate between
+submissions and different students with the buttons at the top.</p>
+<p><img alt="View PDF" src="../screenshots/view_pdf.png" /></p>
+<h3 id="annotate-a-submission">Annotate a submission</h3>
+<p>You can click somewhere on the submission to create an annotation and assign a grade. Students will be able to review
+this to learn why they were scored the way they were.</p>
+<p>In a code submission, you can create annotations per line. In a PDF submission, you can create annotations anywhere.</p>
+<p>You need to assign a score and question to each annotation. The way it affects the student's score will depend on the
+grading mode you selected in the problems tab of the assessment settings.</p>
+<p><img alt="Create annotation" src="../screenshots/create_annotation.png" /></p>
+<p>Recall we're using the "Negative Grading" mode, which is the default value. This means that assigning a score of 0
+(or <code>None</code>) is perfect; it <em>reduces</em> the score by 0. If we wanted to reduce the score, we could assign a negative score.</p>
+<p>In the "positive grading" mode, the student starts with a score of 0 and annotations <em>add</em> to the score.</p>
+<p><img alt="Negative grading mode" src="../screenshots/negative_grading_mode.png" /></p>
+<h3 id="assign-a-grade-by-annotation">Assign a grade by annotation</h3>
+<p>Now you can create one (or more) annotations per problem to assign scores. You'll see the totals computed on the right
+sidebar. Unlike most things in Autolab, it's saved immediately after adding the annotation.</p>
+<p><img alt="Assign grade by annotation" src="../screenshots/assign_grade_by_annotation.png" /></p>
+<h3 id="stacking-annotations">Stacking annotations</h3>
+<p>We can combine various positive and negative scores to create a final score for the problem. Maybe a student missed part
+of the question but answered another part exceptionally well.</p>
+<p><img alt="Stacking annotations" src="../screenshots/stacking_annotations.png" /></p>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      
+    
+  </body>
+</html>

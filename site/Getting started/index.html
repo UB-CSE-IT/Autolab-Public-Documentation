@@ -1,0 +1,978 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://napps.cse.buffalo.edu/docs/autolab/Getting%20started/">
+      
+      
+        <link rel="prev" href="..">
+      
+      
+        <link rel="next" href="../Course%20management/">
+      
+      
+      <link rel="icon" href="../assets/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
+    
+    
+      
+        <title>Getting Started - UB Autolab Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.342714a4.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extras.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  <!-- TODO -->
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#getting-started" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="UB Autolab Documentation" class="md-header__button md-logo" aria-label="UB Autolab Documentation" data-md-component="logo">
+      
+  <img src="../assets/logo.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            UB Autolab Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Getting Started
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="UB Autolab Documentation" class="md-nav__button md-logo" aria-label="UB Autolab Documentation" data-md-component="logo">
+      
+  <img src="../assets/logo.svg" alt="logo">
+
+    </a>
+    UB Autolab Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Introduction
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Getting Started
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Getting Started
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#your-first-login" class="md-nav__link">
+    <span class="md-ellipsis">
+      Your First Login
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-a-course" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create a Course
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Create a Course">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#visit-the-portal" class="md-nav__link">
+    <span class="md-ellipsis">
+      Visit the portal
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#portal-home" class="md-nav__link">
+    <span class="md-ellipsis">
+      Portal home
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 1
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#about-course-urls" class="md-nav__link">
+    <span class="md-ellipsis">
+      About Course URLs
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 2
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 3
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#success" class="md-nav__link">
+    <span class="md-ellipsis">
+      Success
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#if-theres-an-error" class="md-nav__link">
+    <span class="md-ellipsis">
+      If there's an error
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#custom-course-url-conventions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Custom course URL conventions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Custom course URL conventions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#multiple-autolab-courses-for-a-single-ub-course" class="md-nav__link">
+    <span class="md-ellipsis">
+      Multiple Autolab courses for a single UB course
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#individual-test-courses" class="md-nav__link">
+    <span class="md-ellipsis">
+      Individual test courses
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#club-courses" class="md-nav__link">
+    <span class="md-ellipsis">
+      Club courses
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#project-development-test-courses" class="md-nav__link">
+    <span class="md-ellipsis">
+      Project development test courses
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Course%20management/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Course Management
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Create%20an%20assessment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Create an Assessment
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Create%20an%20autograder/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Create an Autograder
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Grader%20Assignment%20Tool/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Grader Assignment Tool (GAT)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../UB%20course%20sections/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    UB Course Sections
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Create%20an%20autograding%20image/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Create an Autograding Image
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../The%20autograding%20process/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    The Autograding Process
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#your-first-login" class="md-nav__link">
+    <span class="md-ellipsis">
+      Your First Login
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-a-course" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create a Course
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Create a Course">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#visit-the-portal" class="md-nav__link">
+    <span class="md-ellipsis">
+      Visit the portal
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#portal-home" class="md-nav__link">
+    <span class="md-ellipsis">
+      Portal home
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 1
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#about-course-urls" class="md-nav__link">
+    <span class="md-ellipsis">
+      About Course URLs
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 2
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 3
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#success" class="md-nav__link">
+    <span class="md-ellipsis">
+      Success
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#if-theres-an-error" class="md-nav__link">
+    <span class="md-ellipsis">
+      If there's an error
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#custom-course-url-conventions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Custom course URL conventions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Custom course URL conventions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#multiple-autolab-courses-for-a-single-ub-course" class="md-nav__link">
+    <span class="md-ellipsis">
+      Multiple Autolab courses for a single UB course
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#individual-test-courses" class="md-nav__link">
+    <span class="md-ellipsis">
+      Individual test courses
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#club-courses" class="md-nav__link">
+    <span class="md-ellipsis">
+      Club courses
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#project-development-test-courses" class="md-nav__link">
+    <span class="md-ellipsis">
+      Project development test courses
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="getting-started">Getting Started</h1>
+<h2 id="your-first-login">Your First Login</h2>
+<p>The first time you visit Autolab at <a href="https://autolab.cse.buffalo.edu">https://autolab.cse.buffalo.edu</a>, you'll be asked to sign in.</p>
+<p><img alt="Login" src="../screenshots/login.png" /></p>
+<p>Students and faculty should choose <code>Sign in with Shibboleth</code>. You'll be redirected to the UB Single Sign On page
+(shibboleth.buffalo.edu), where you can enter your standard UBIT credentials and perform a 2FA verification.</p>
+<p>After signing in, you'll be redirected to Autolab. Since you're a new user, you probably won't be enrolled in any
+courses. (Instructors can enroll students in courses before they've logged into Autolab for the first time, so you <em>may</em>
+see some courses even if this is your first time logging in.)</p>
+<p>If you're an instructor, you can <a href="#create-a-course">Create a Course</a> to get started. If you're a student, you'll need to
+wait for your instructor to create a course and enroll you in it.</p>
+<h2 id="create-a-course">Create a Course</h2>
+<p>This feature is only available to instructors who have current and/or future lectures or seminars officially scheduled
+by UB. If you need an Autolab course for a different purpose, please contact CSE IT.</p>
+<h3 id="visit-the-portal">Visit the portal</h3>
+<p>The footer of every page contains a link to our custom Autolab <a href="https://autolab.cse.buffalo.edu/portal/">Portal</a>.</p>
+<p><img alt="Autolab footer" src="../screenshots/footer_portal_highlight.png" /></p>
+<p>Visit the portal, and click <code>Sign in with Shibboleth</code>. It will probably be automatic if you've recently signed into
+Autolab.</p>
+<p><img alt="Portal login" src="../screenshots/portal_login.png" /></p>
+<h3 id="portal-home">Portal home</h3>
+<p>After signing in, you'll see a list of actions you can perform. Select <code>Create a course</code>.</p>
+<p><img alt="Portal create a course arrow" src="../screenshots/portal_create_a_course_arrow.png" /></p>
+<h3 id="step-1">Step 1</h3>
+<p>You'll see a list of current and upcoming courses you're scheduled to teach. Find the course you want to create, and
+click <code>Create this Course</code> at the bottom of the card.</p>
+<p><img alt="Step 1" src="../screenshots/portal_create_course_step1.png" /></p>
+<blockquote>
+<h3 id="about-course-urls">About Course URLs</h3>
+<p>For consistency, the course URL is predefined based on the course name and semester. It's not customizable by the
+instructor. If a course is cross-listed, the lowest level course is used. The course URL is used for unique
+identification in different ways on the backend, so we try to refrain from deviating from this standard scheme.</p>
+</blockquote>
+<h3 id="step-2">Step 2</h3>
+<p>You'll be able to customize the course name. We've chosen a good default, but you can change it if you want. We have
+some guidelines and examples at the top of the page. Click <code>Continue</code> when it looks good.</p>
+<p><img alt="Step 2" src="../screenshots/portal_create_course_step2.png" /></p>
+<h3 id="step-3">Step 3</h3>
+<p>Finally, you'll be able to confirm the course creation. If everything looks good, click <code>Confirm</code> at the bottom of the
+card. Most other options can be changed later if necessary.</p>
+<p><img alt="Step 3" src="../screenshots/portal_create_course_step3.png" /></p>
+<h3 id="success">Success</h3>
+<p>If everything went well, you'll see a success message. You can click <code>Go to Course Page</code> to continue in Autolab. You can
+continue configuring your course with info in the <a href="../Course%20management/">Course Management</a> guide.</p>
+<p><img alt="Create course success" src="../screenshots/portal_create_course_success.png" /></p>
+<h3 id="if-theres-an-error">If there's an error</h3>
+<p>If something went wrong, you'll see an error message. If the message doesn't help you resolve it, please contact CSE IT
+for assistance.</p>
+<p>Here's an example of an error message you might see if you try to create a course that already exists. In this case,
+it's likely that another instructor already created the course but hasn't added you to it yet. If you and another
+instructor would like separate Autolab courses for the same course in the same semester, please contact CSE IT.
+We've found that most instructors prefer to share a single course.</p>
+<p><img alt="Create course error" src="../screenshots/portal_create_course_error_example.png" /></p>
+<h3 id="custom-course-url-conventions">Custom course URL conventions</h3>
+<p>The URL conventions for automatically generated courses are described <a href="#about-course-urls">above</a>.
+When courses are created manually, by contacting CSE IT, we still follow certain conventions for consistency.</p>
+<h4 id="multiple-autolab-courses-for-a-single-ub-course">Multiple Autolab courses for a single UB course</h4>
+<ul>
+<li>Faculty may request additional Autolab courses for different sections of a UB course.</li>
+<li>The first course should be created with the Self-service Portal like normal.<ul>
+<li>E.g., <code>cse442-f23</code></li>
+</ul>
+</li>
+<li>Subsequent courses can be created by contacting CSE IT.<ul>
+<li>The first 10 characters of the course URL are the same as the first course. This is parsed by automated tools,
+  such as the "magic importer" in the course sections tool.</li>
+<li>Reasonable suffixes are appended to the end of the standard course URL, such as section letters.<ul>
+<li>E.g., <code>cse442-f23b</code></li>
+<li>E.g., <code>cse442-f23c</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="individual-test-courses">Individual test courses</h4>
+<ul>
+<li>CSE faculty and staff may request an Autolab course for testing purposes by contacting CSE IT.</li>
+<li>The course URL will be your username prefixed with <code>individual-</code>.<ul>
+<li>E.g., <code>individual-username</code></li>
+</ul>
+</li>
+<li>Only one Autolab course will be created per person.</li>
+</ul>
+<h4 id="club-courses">Club courses</h4>
+<ul>
+<li>Faculty advisors of
+  an <a href="https://engineering.buffalo.edu/computer-science-engineering/people/professional-and-student-organizations.html">officially recognized UB CSE/SEAS club</a>
+  may request an Autolab course for the club by contacting CSE IT.</li>
+<li>The course URL will be the club name or abbreviation prefixed with <code>club-</code>.<ul>
+<li>E.g., <code>club-makeopensource</code></li>
+</ul>
+</li>
+<li>Only one Autolab course is allowed per club.</li>
+<li>Club courses may be used for testing Autolab or for actual club activities.</li>
+</ul>
+<h4 id="project-development-test-courses">Project development test courses</h4>
+<ul>
+<li>Faculty, staff, and personally approved students may request an Autolab course for development purposes by contacting
+  CSE IT.</li>
+<li>This is intended for developing external Autolab integrations, such as IDE extensions and custom apps that use the
+  Autolab API.</li>
+<li>The course URL will be your project name prefixed with <code>test-</code> followed by the semester.<ul>
+<li>E.g., <code>test-myproject-f23</code></li>
+</ul>
+</li>
+<li>Only one Autolab course will be created per project.</li>
+<li>If a project spans multiple semesters, the course URL will not change. The semester indicates when the project was
+  started.</li>
+<li>Since this is for testing purposes, you should not store any real student data in the course.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      
+    
+  </body>
+</html>

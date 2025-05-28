@@ -1,0 +1,1361 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://napps.cse.buffalo.edu/docs/autolab/Create%20an%20autograder/">
+      
+      
+        <link rel="prev" href="../Create%20an%20assessment/">
+      
+      
+        <link rel="next" href="../Grader%20Assignment%20Tool/">
+      
+      
+      <link rel="icon" href="../assets/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
+    
+    
+      
+        <title>Create an Autograder - UB Autolab Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.342714a4.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extras.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  <!-- TODO -->
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#create-an-autograder" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="UB Autolab Documentation" class="md-header__button md-logo" aria-label="UB Autolab Documentation" data-md-component="logo">
+      
+  <img src="../assets/logo.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            UB Autolab Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Create an Autograder
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="UB Autolab Documentation" class="md-nav__button md-logo" aria-label="UB Autolab Documentation" data-md-component="logo">
+      
+  <img src="../assets/logo.svg" alt="logo">
+
+    </a>
+    UB Autolab Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Introduction
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Getting%20started/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Getting Started
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Course%20management/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Course Management
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Create%20an%20assessment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Create an Assessment
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Create an Autograder
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Create an Autograder
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      Setup
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Setup">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-an-assessment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create an assessment
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set-the-handin-filename" class="md-nav__link">
+    <span class="md-ellipsis">
+      Set the handin filename
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#have-a-multi-file-project" class="md-nav__link">
+    <span class="md-ellipsis">
+      Have a multi-file project?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-some-problems" class="md-nav__link">
+    <span class="md-ellipsis">
+      Add some problems
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#save-your-changes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Save your changes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-an-autograder" class="md-nav__link">
+    <span class="md-ellipsis">
+      Add an autograder
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#a-minimal-autograder" class="md-nav__link">
+    <span class="md-ellipsis">
+      A Minimal Autograder
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="A Minimal Autograder">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#graderpy" class="md-nav__link">
+    <span class="md-ellipsis">
+      grader.py
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#autogradetar" class="md-nav__link">
+    <span class="md-ellipsis">
+      autograde.tar
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#makefile" class="md-nav__link">
+    <span class="md-ellipsis">
+      Makefile
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#upload-the-autograder-to-autolab" class="md-nav__link">
+    <span class="md-ellipsis">
+      Upload the Autograder to Autolab
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#test-the-autograder" class="md-nav__link">
+    <span class="md-ellipsis">
+      Test the Autograder
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Test the Autograder">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#upload-a-correct-solution" class="md-nav__link">
+    <span class="md-ellipsis">
+      Upload a correct solution
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#upload-an-incorrect-solution" class="md-nav__link">
+    <span class="md-ellipsis">
+      Upload an incorrect solution
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#upload-a-problematic-solution" class="md-nav__link">
+    <span class="md-ellipsis">
+      Upload a problematic solution
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Upload a problematic solution">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#crashing-the-grader" class="md-nav__link">
+    <span class="md-ellipsis">
+      Crashing the grader
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getting-the-graders-source-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      Getting the grader's source code
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setting-an-arbitrary-score" class="md-nav__link">
+    <span class="md-ellipsis">
+      Setting an arbitrary score
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#formatted-feedback" class="md-nav__link">
+    <span class="md-ellipsis">
+      Formatted Feedback
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#student-metadata" class="md-nav__link">
+    <span class="md-ellipsis">
+      Student Metadata
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#embedded-forms" class="md-nav__link">
+    <span class="md-ellipsis">
+      Embedded Forms
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Embedded Forms">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-the-html-form" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create the HTML form
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#upload-the-html-form" class="md-nav__link">
+    <span class="md-ellipsis">
+      Upload the HTML form
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#considerations-for-the-autograder" class="md-nav__link">
+    <span class="md-ellipsis">
+      Considerations for the autograder
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#embedded-form-with-file-submission-ub-feature" class="md-nav__link">
+    <span class="md-ellipsis">
+      Embedded form with file submission (UB Feature)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Grader%20Assignment%20Tool/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Grader Assignment Tool (GAT)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../UB%20course%20sections/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    UB Course Sections
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Create%20an%20autograding%20image/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Create an Autograding Image
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../The%20autograding%20process/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    The Autograding Process
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      Setup
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Setup">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-an-assessment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create an assessment
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set-the-handin-filename" class="md-nav__link">
+    <span class="md-ellipsis">
+      Set the handin filename
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#have-a-multi-file-project" class="md-nav__link">
+    <span class="md-ellipsis">
+      Have a multi-file project?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-some-problems" class="md-nav__link">
+    <span class="md-ellipsis">
+      Add some problems
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#save-your-changes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Save your changes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-an-autograder" class="md-nav__link">
+    <span class="md-ellipsis">
+      Add an autograder
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#a-minimal-autograder" class="md-nav__link">
+    <span class="md-ellipsis">
+      A Minimal Autograder
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="A Minimal Autograder">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#graderpy" class="md-nav__link">
+    <span class="md-ellipsis">
+      grader.py
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#autogradetar" class="md-nav__link">
+    <span class="md-ellipsis">
+      autograde.tar
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#makefile" class="md-nav__link">
+    <span class="md-ellipsis">
+      Makefile
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#upload-the-autograder-to-autolab" class="md-nav__link">
+    <span class="md-ellipsis">
+      Upload the Autograder to Autolab
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#test-the-autograder" class="md-nav__link">
+    <span class="md-ellipsis">
+      Test the Autograder
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Test the Autograder">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#upload-a-correct-solution" class="md-nav__link">
+    <span class="md-ellipsis">
+      Upload a correct solution
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#upload-an-incorrect-solution" class="md-nav__link">
+    <span class="md-ellipsis">
+      Upload an incorrect solution
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#upload-a-problematic-solution" class="md-nav__link">
+    <span class="md-ellipsis">
+      Upload a problematic solution
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Upload a problematic solution">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#crashing-the-grader" class="md-nav__link">
+    <span class="md-ellipsis">
+      Crashing the grader
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getting-the-graders-source-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      Getting the grader's source code
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setting-an-arbitrary-score" class="md-nav__link">
+    <span class="md-ellipsis">
+      Setting an arbitrary score
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#formatted-feedback" class="md-nav__link">
+    <span class="md-ellipsis">
+      Formatted Feedback
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#student-metadata" class="md-nav__link">
+    <span class="md-ellipsis">
+      Student Metadata
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#embedded-forms" class="md-nav__link">
+    <span class="md-ellipsis">
+      Embedded Forms
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Embedded Forms">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-the-html-form" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create the HTML form
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#upload-the-html-form" class="md-nav__link">
+    <span class="md-ellipsis">
+      Upload the HTML form
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#considerations-for-the-autograder" class="md-nav__link">
+    <span class="md-ellipsis">
+      Considerations for the autograder
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#embedded-form-with-file-submission-ub-feature" class="md-nav__link">
+    <span class="md-ellipsis">
+      Embedded form with file submission (UB Feature)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="create-an-autograder">Create an Autograder</h1>
+<p>This is arguably the most important feature of Autolab. An autograder will run automatically after a student makes a
+submission to an assessment. As an instructor, you will write code that grades a student's submission. When a student
+submits their work, it will be copied into a Docker container, along with your grading files and some metadata. Your
+code should interact with the student's submission in some way to determine its correctness. You can print feedback to
+stdout for the student to see. The final line you print must be a JSON string with the student's scores for each problem
+in the assessment.</p>
+<h2 id="setup">Setup</h2>
+<h3 id="create-an-assessment">Create an assessment</h3>
+<p>Start by creating an assessment as described in the <a href="../Create%20an%20assessment/">Create an Assessment</a> guide.</p>
+<p>From the assessment page, click <code>Edit assessment</code>.</p>
+<p><img alt="Edit assessment" src="../screenshots/edit_assessment.png" /></p>
+<h3 id="set-the-handin-filename">Set the handin filename</h3>
+<p>Choose the handin filename from the "Handin" tab. This is the name of the file that your autograder will
+need to interact with. The extension is an important hint about what type of file students should upload. In this
+simple grader, I'll have the students upload a Python script.</p>
+<blockquote>
+<h3 id="have-a-multi-file-project">Have a multi-file project?</h3>
+<p>Since students can only submit one file, it's common to request they upload a .zip or .tar.gz archive for larger
+projects. Then, your grader can decompress the archive and have access to all the files.</p>
+</blockquote>
+<p><img alt="Handin py extension" src="../screenshots/handin_py_extension.png" /></p>
+<h3 id="add-some-problems">Add some problems</h3>
+<p>From the <code>Problems</code> tab, add some problems that will be graded by our autograder.</p>
+<p><img alt="Autograder problems" src="../screenshots/autograder_problems.png" /></p>
+<blockquote>
+<h3 id="save-your-changes">Save your changes</h3>
+<p>Remember, Autolab doesn't apply most settings immediately. You'll need to click <code>Save</code> at the bottom of the page after
+making these changes.</p>
+</blockquote>
+<h3 id="add-an-autograder">Add an autograder</h3>
+<p>From the <code>Basic</code> tab, scroll down to the "Modules Used" section, and click the plus next to "Autograder".</p>
+<p><img alt="Autograder plus" src="../screenshots/autograder_plus.png" /></p>
+<ol>
+<li>Choose a VM image to use. This is the Docker image that your container will be built from. The <code>autograding_image</code> is
+   a good choice for Python projects.<ul>
+<li>You can see all the Dockerfiles for Autolab's VM images in our
+  <a href="https://github.com/UB-CSE-IT/Autograding-Images">Autograding Images repository</a>. If you need a custom image,
+  see <a href="../Create%20an%20autograding%20image/">Create an autograding image</a>. Try to use an existing image if possible.</li>
+</ul>
+</li>
+<li>Choose the timeout for the autograder. This is the maximum amount of time your autograder will be allowed to run. If
+   grading takes longer than this, the student will receive partial feedback and an error saying that Autolab couldn't
+   parse the output from your grader.<ul>
+<li>Our new hardware as of fall 2023 is much faster, and many jobs finish in under 10 seconds. I recommend uploading
+  your own solution to the assessment and running it to get an idea of how long it takes to run. Then, at your
+  discretion, add some time to account for performance variation and inefficient submissions.</li>
+<li>If you want to grade based on runtime, this is not the way to do it. You'll need to implement the timeout feature
+  within your grader. Since there's variation between runs, consider even timing your solution within the same
+  container and adjust the expected runtime dynamically.</li>
+</ul>
+</li>
+<li>Click <code>Save Settings</code>. We'll come back to this page later to upload the grader.</li>
+</ol>
+<p><img alt="Autograder initial settings" src="../screenshots/autograder_initial_settings.png" /></p>
+<h2 id="a-minimal-autograder">A Minimal Autograder</h2>
+<p>An Autograder is composed of two files: a Makefile, and a .tar (not gzipped) archive containing your arbitrary grading
+code.</p>
+<p>Let's walk through the process of creating a super simple autograder. In the real world, you'll need to make your
+graders more robust.</p>
+<p>For this assignment, students will upload a Python script with a function named <code>get_positive_number</code> that should return
+any positive number of their choosing.</p>
+<p>This autograder's files are available in the <code>sample_files/autograder0</code> directory if you want to experiment with it.</p>
+<h3 id="graderpy">grader.py</h3>
+<p>You're free to design your grading code however you want. There are no hard requirements for structuring your grader as
+long as it can be initiated from a Makefile. For example, there's nothing special about the name "grader.py". There
+<em>are</em>, however, specific ways to format the final output, which your grader must output to stdout.</p>
+<p>The final line your grader outputs to stdout must be a JSON string formatted like this, where q1, q2, and q3 are the
+problem names in the assessment:</p>
+<pre><code>{&quot;scores&quot;: {&quot;q1&quot;: 10, &quot;q2&quot;: 10, &quot;q3&quot;: 10}}
+</code></pre>
+<p>There are more advanced feedback features too, but this is the bare minimum.</p>
+<p>You can review my sample <code>grader.py</code> in the <code>sample_files/autograder0</code> directory.</p>
+<h3 id="autogradetar">autograde.tar</h3>
+<p>Once you've written your grader of arbitrary complexity, you'll need to package it into a .tar (not gzipped) archive. I
+provided a bash script located at sample_files/autograder0/create_grader.sh that will create the archive in this case.
+It just runs one simple command to bundle all the grading files into an archive. (In this case, there's only one file.):</p>
+<p>This file MUST be named <code>autograde.tar</code>. Autolab will rename it when you upload it, so your Makefile and anything else
+that depends on this must expect the name to be <code>autograde.tar</code>.</p>
+<pre><code class="language-bash">tar -cf autograde.tar grader.py
+</code></pre>
+<h3 id="makefile">Makefile</h3>
+<p>The Makefile is the entry point for an Autograder. After copying the student's submission and your .tar grader file into
+a directory, Autolab will run <code>make</code> in that directory. This should invoke the grading process.</p>
+<p>Here's a minimal Makefile that will extract our grader and run <code>grader.py</code>.</p>
+<pre><code class="language-makefile">all:
+    tar -xf autograde.tar
+    python3 grader.py
+</code></pre>
+<h2 id="upload-the-autograder-to-autolab">Upload the Autograder to Autolab</h2>
+<p>Now that we have our autograde.tar and Makefile, we can upload them to Autolab.</p>
+<p>Since we added the Autograder module to the assessment, we can click <code>Autograder settings</code> from the assessment page.</p>
+<p><img alt="Autograder settings link" src="../screenshots/autograder_settings_link.png" /></p>
+<p>Upload the autograde.tar and Makefile, then click <code>Save Settings</code>.</p>
+<p>Tip: You can drag the files onto the button instead of needing to open a file browser twice.</p>
+<p><img alt="Upload autograder" src="../screenshots/upload_autograder.png" /></p>
+<p>Our assessment is now ready to grade submissions!</p>
+<h2 id="test-the-autograder">Test the Autograder</h2>
+<h3 id="upload-a-correct-solution">Upload a correct solution</h3>
+<p>Let's upload a correct solution to verify that our autograder works. There's a sample solution available
+at <code>sample_files/autograder0/handin.py</code>.</p>
+<p>From the assessment page, choose the file to submit, agree to the academic integrity policy, and click <code>Submit</code>.</p>
+<p><img alt="Submit py" src="../screenshots/submit_py.png" /></p>
+<p>You'll be redirected to your handin history.</p>
+<p><img alt="Handin history" src="../screenshots/handin_history.png" /></p>
+<p>Refresh the page in about 3 seconds, and you'll see your scores.</p>
+<p><img alt="Handin history scores" src="../screenshots/handin_history_scores.png" /></p>
+<p>Click one of the scores to view your feedback. For autograded assignments, each problem has the same feedback.</p>
+<p><img alt="Handin feedback full score" src="../screenshots/handin_feedback_full_score.png" /></p>
+<h3 id="upload-an-incorrect-solution">Upload an incorrect solution</h3>
+<p>Now, let's upload an incorrect solution to verify that our autograder doesn't award points.</p>
+<p>There's a sample incorrect solution available at <code>sample_files/autograder0/handin_incorrect1.py</code>. Follow the same steps
+as before to upload this.</p>
+<p><img alt="Handin feedback incorrect" src="../screenshots/handin_feedback_incorrect.png" /></p>
+<p>Good! Our autograder is working as expected.</p>
+<h3 id="upload-a-problematic-solution">Upload a problematic solution</h3>
+<h4 id="crashing-the-grader">Crashing the grader</h4>
+<p>Now, let's upload a solution that will cause our autograder to fail. This will serve to emphasize the importance of
+writing robust graders. I wrote a sample solution that doesn't contain the method our grader expects to call. It's
+available at <code>sample_files/autograder0/handin_incorrect2.py</code>.</p>
+<p>Here's the output we'll get from that:</p>
+<p><img alt="Handin feedback crash" src="../screenshots/handin_feedback_crash.png" /></p>
+<p>Autolab tried to parse the last line as a scores JSON string, but it failed because our grader crashed before it printed
+the scores. In this case, each problem will be assigned a zero.</p>
+<p>This may not sound bad at first, but the student can see the full traceback, which may leak information about your
+grader and make it easy for them to hardcode solutions. It's very important to make your graders robust so they won't
+crash or leak sensitive information. I'll demonstrate some other naive leaking techniques below. There are more advanced
+attacks that won't be discussed publicly here.</p>
+<h4 id="getting-the-graders-source-code">Getting the grader's source code</h4>
+<p>For example, with this non-robust grader, the <code>sample_files/autograder0/handin_cheating1.py</code> solution will print
+grader.py's source code for the student to inspect.</p>
+<p><img alt="Handin feedback cheating1" src="../screenshots/handin_feedback_cheating1.png" /></p>
+<h4 id="setting-an-arbitrary-score">Setting an arbitrary score</h4>
+<p>If a student is able to print the final line of the grader's output, they can set their own score. This is possible if
+you're showing the student's output, and they're able to freeze the autograder until it times out.</p>
+<p>For example, with this non-robust grader, the <code>sample_files/autograder0/handin_cheating2.py</code> solution will
+print <code>{"scores": {"q1": 10, "q2": 9999, "q3": 9999}}</code> and then sleep for a long time. The grader will time out and
+nothing else will be printed, which means Autolab sees that line as the student's scores. You need to ensure your grader
+outputs the final line, which usually means implementing your own timeouts.</p>
+<p><img alt="Handin feeback cheating2" src="../screenshots/handin_feedback_cheating3.png" /></p>
+<h2 id="formatted-feedback">Formatted Feedback</h2>
+<p>The new version of Autolab (fall 2023) supports formatted feedback. This is a much more user-friendly way to show
+autograding results.</p>
+<p>To enable the most basic form of formatted feedback, you'll need to print another JSON map to stdout just before the
+scores:</p>
+<pre><code>{&quot;_presentation&quot;: &quot;semantic&quot;}
+</code></pre>
+<p>That simple change will format the feedback like this:</p>
+<p><img alt="Handin formatted feedback" src="../screenshots/handin_formatted_feedback.png" /></p>
+<p>That in itself isn't very useful. It's exactly what was shown on the sidebar before. Thankfully, it's possible to do
+much more.</p>
+<p><img alt="Formatted feedback autolab docs" src="../screenshots/formatted_feedback_autoloab_docs.png" /></p>
+<p><em>Screenshot from the Autolab Project docs</em></p>
+<p>Read more about formatted feedback <a href="https://docs.autolabproject.com/features/formatted-feedback/">here</a>.</p>
+<h2 id="student-metadata">Student Metadata</h2>
+<p>Along with the student's submission, you'll receive a JSON file named <code>settings.json</code> that contains metadata about the
+student. The format of this file looks like:</p>
+<pre><code>{&quot;ubit&quot;:&quot;username&quot;,&quot;ip&quot;:&quot;1.1.1.1&quot;,&quot;lecture&quot;:&quot;&quot;,&quot;section&quot;:&quot;&quot;,&quot;timestamp&quot;:&quot;2023-07-11T13:32:00.000-04:00&quot;,&quot;version&quot;:8,&quot;github_repo&quot;:&quot;username-repo&quot;,&quot;github_branch&quot;:&quot;main&quot;,&quot;github_commit&quot;:&quot;1234abc&quot;}}
+</code></pre>
+<p>This can be used to verify a student is submitting at the right time or from the right location.</p>
+<p>Note that the "lecture" value may be <code>null</code>, while the "section" value will always be a string. The Autolab developers
+defined the schema as follows:</p>
+<pre><code>t.string &quot;lecture&quot;
+t.string &quot;section&quot;, default: &quot;&quot;
+</code></pre>
+<p>GitHub submission metadata was added in September 2024. When a submission is NOT made from GitHub, "github_repo", "github_branch", and "github_commit" will be <code>null</code>.</p>
+<p>A sample grader that simply prints this information is available in <code>sample_files/autograder2</code>.</p>
+<h2 id="embedded-forms">Embedded Forms</h2>
+<p>Instead of having students submit a file, you can have them fill out an HTML form and pass the data to your grader.</p>
+<p>A sample embedded form grader is available in <code>sample_files/autograder3</code>.</p>
+<h3 id="create-the-html-form">Create the HTML form</h3>
+<p>First, let's create an HTML form. I've created a sample form in <code>sample_files/autograder3/form.html</code>. Notice that it
+only contains the inner HTML of the form tag. Autolab will automatically insert this file's contents into a form
+element.</p>
+<p>The <code>name</code> attribute on each input is the key that will be used in the JSON file.</p>
+<p>The following names are <strong>reserved</strong> (for settings.json metadata and Rails internals) and cannot be used:</p>
+<ul>
+<li>ubit</li>
+<li>ip</li>
+<li>lecture</li>
+<li>section</li>
+<li>timestamp</li>
+<li>version</li>
+<li>controller</li>
+<li>action</li>
+<li>submission</li>
+<li>utf8</li>
+<li>authenticity_token</li>
+<li>submission_file (only allowed for <a href="#embedded-form-with-file-submission-ub-feature">an embedded form with a file submission</a>)</li>
+<li>integrity_checkbox</li>
+<li>course_name</li>
+<li>name</li>
+<li>github_repo</li>
+<li>github_branch</li>
+<li>github_commit</li>
+</ul>
+<p>Note that the label MUST come after the input, or it will be rendered incorrectly. This is worthy of mention because
+it's different from the <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/label">Mozilla docs</a>.</p>
+<p>This is correct:</p>
+<pre><code class="language-html"> &lt;label&gt;
+    &lt;input name=&quot;q2&quot; type=&quot;radio&quot; value=&quot;Yes&quot;/&gt;
+    &lt;span&gt;Yes&lt;/span&gt;
+&lt;/label&gt;
+</code></pre>
+<p>This is <strong>invalid</strong>:</p>
+<pre><code class="language-html"> &lt;label&gt;
+    &lt;span&gt;Yes&lt;/span&gt;
+    &lt;input name=&quot;q2&quot; type=&quot;radio&quot; value=&quot;Yes&quot;/&gt;
+&lt;/label&gt;
+</code></pre>
+<h3 id="upload-the-html-form">Upload the HTML form</h3>
+<p>After creating the form, navigate to the <code>Advanced</code> tab of the assessment options.</p>
+<ol>
+<li>Enable the embedded form</li>
+<li>Upload the embedded form</li>
+<li>Click <code>Save</code></li>
+</ol>
+<p><img alt="Add embedded form" src="../screenshots/add_embedded_form.png" /></p>
+<p>From the <code>Handin</code> tab, change the <code>Handin filename</code> to <code>handin.json</code>. This isn't strictly necessary, but it's good
+practice.</p>
+<h3 id="considerations-for-the-autograder">Considerations for the autograder</h3>
+<p>Your grader will receive a file with the following contents:</p>
+<pre><code>{&quot;q1&quot;:&quot;apple&quot;,&quot;q2&quot;:&quot;Yes&quot;,&quot;q3&quot;:&quot;99&quot;}
+</code></pre>
+<p>(Updated July 31, 2023: Extra fields professors don't care about have been removed. The output is now a very clean JSON
+map.)</p>
+<p>Your grader will need to parse that JSON and grade the submission accordingly. Notice it may contain non-ASCII
+characters. See the note below about encodings.</p>
+<p>After writing and uploading a grader, visit the assessment page, and you'll see a preview of the form. Fill it out and
+submit it. It'll be treated like a regular autograded assignment from here, as if the student uploaded the JSON file.</p>
+<p><img alt="Embedded form preview" src="../screenshots/embedded_form_preview.png" /></p>
+<p>The feedback for our sample grader looks like this. Note that these are different inputs than the screenshot above.</p>
+<p><img alt="Embedded form feedback" src="../screenshots/embedded_form_feedback.png" /></p>
+<ul>
+<li>Be aware that students can submit any data they want. The form isn't validated by Autolab. For example, a multiple
+  choice question can be answered with any string. This may be used intentionally to teach about POST requests in a
+  course
+  like CSE 312: Web Applications, so I won't demonstrate it here.</li>
+<li>Be careful with different encodings. It's safest to remove non-ASCII characters from the student's input. Definitely
+  test submitting with emojis to see how it behaves. 😎</li>
+<li>Also test submitting a blank form.</li>
+</ul>
+<p>There's more information about embedded forms here: <a href="https://docs.autolabproject.com/features/embedded-forms/">https://docs.autolabproject.com/features/embedded-forms/</a></p>
+<h3 id="embedded-form-with-file-submission-ub-feature">Embedded form with file submission (UB Feature)</h3>
+<p>If you need students to submit a file with an embedded form, create an embedded form with a file input named
+"submission_file".</p>
+<pre><code class="language-html">&lt;input type=&quot;file&quot; name=&quot;submission_file&quot; required&gt;
+</code></pre>
+<p>This file will become the student's handin, and their form data will become part of their settings.json metadata.</p>
+<p>If a file is not attached, it will be treated as a regular embedded form submission; the form data will be the handin
+file, which will probably cause your autograder to fail. The <code>required</code> HTML attribute can prevent this from occurring
+accidentally. This is only client-side validation, so it's not a substitute for proper validation in your autograder.</p>
+<p>To preserve backwards compatibility, the form data is merged into the root of the settings.json map. A sample
+settings.json when creating a form with a file looks like this:</p>
+<pre><code>{&quot;q1&quot;:&quot;This is my answer to question 1&quot;,&quot;ubit&quot;:&quot;username&quot;,&quot;ip&quot;:&quot;1.1.1.1&quot;,&quot;lecture&quot;:null,&quot;section&quot;:&quot;&quot;,&quot;timestamp&quot;:&quot;2023-07-31T15:43:27.000-04:00&quot;,&quot;version&quot;:331,&quot;github_repo&quot;:null,&quot;github_branch&quot;:null,&quot;github_commit&quot;:null}}
+</code></pre>
+<p>You can see a full example of this in <code>sample_files/autograder4</code>.</p>
+<p>Note: There isn't a convenient way to access the form data after submitting. If you want students, TAs, or yourself to
+be able to review the form data later, it's recommended to print it in the autograder feedback.</p>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,49 @@
+:root {
+    --ub-blue: #005bbb;
+    --hayes-hall-white: #ffffff;
+    --letchworth-autumn: #e56a54;
+    --solar-strand: #ffc72c;
+    --greiner-green: #ebec00;
+    --lake-lasalle: #00a69c;
+    --capen-brick: #990000;
+    --bronze-buffalo: #ad841f;
+    --olmsted-green: #6da04b;
+    --niagara-whirlpool: #006570;
+    --victor-e-blue: #2f9fd0;
+    --harriman-blue: #002f56;
+    --baird-point: #e4e4e4;
+    --townsend-gray: #666666;
+    --navigation-orange: #da3c28;
+    --navigation-green: #427d10;
+    --footer-headline: #ffd86c;
+}
+
+:root {
+    --md-primary-fg-color: var(--harriman-blue);
+}
+
+
+[data-md-color-scheme="default"] > * {
+    /* Light theme */
+    --md-typeset-a-color: var(--ub-blue);
+    --md-accent-fg-color: var(--navigation-orange);
+
+}
+
+[data-md-color-scheme="slate"] > * {
+    /* Dark theme */
+    --md-typeset-a-color: var(--victor-e-blue);
+    --md-accent-fg-color: var(--letchworth-autumn);
+}
+
+@media only screen and (max-width: 1219px){
+    .desktop-only {
+        display: none;
+    }
+}
+
+@media only screen and (min-width: 1220px){
+    .mobile-only {
+        display: none;
+    }
+}
