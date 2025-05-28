@@ -336,8 +336,8 @@ Your grader will receive a file with the following contents:
 (Updated July 31, 2023: Extra fields professors don't care about have been removed. The output is now a very clean JSON
 map.)
 
-Your grader will need to parse that JSON and grade the submission accordingly. Notice it ~~will~~ may (not guaranteed
-after July 31, 2023) contain non-ASCII characters. See the note below about encodings.
+Your grader will need to parse that JSON and grade the submission accordingly. Notice it may contain non-ASCII
+characters. See the note below about encodings.
 
 After writing and uploading a grader, visit the assessment page, and you'll see a preview of the form. Fill it out and
 submit it. It'll be treated like a regular autograded assignment from here, as if the student uploaded the JSON file.

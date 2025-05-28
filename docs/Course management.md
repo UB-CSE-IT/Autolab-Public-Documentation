@@ -124,7 +124,7 @@ You'll see the TAs added to the roster.
 ![Teaching assistants added](screenshots/teaching_assistants_added.png)
 
 > ### Side Note on Autolab Accounts
-> In this example, the accounts don't really exist, so the names are incorrect/missing.
+> * In this example, the accounts don't really exist, so the names are incorrect/missing.
 > * If the TA already has an Autolab account, which is highly likely, the data will be correct.
 > * If the TA doesn't have an Autolab account, their information will automatically be updated when they sign in for the
     first time.
