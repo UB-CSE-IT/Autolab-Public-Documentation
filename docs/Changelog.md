@@ -3,6 +3,8 @@ the [GitHub repository](https://github.com/UB-CSE-IT/Autolab).
 
 ## 2025.0.5
 
+Deployed 2025-06-17
+
 - Bug fix: Assessment dates are validated to be compatible with MySQL TIMESTAMP type to prevent soft-locking the course.
 - Bug fix: Code difference viewer now supports non-ASCII files.
 - UX: Handin form is reset when navigating with browser back button.
