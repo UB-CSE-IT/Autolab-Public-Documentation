@@ -1,6 +1,13 @@
 This document logs the changes made in each UB Autolab version. You can view the detailed commit history in
 the [GitHub repository](https://github.com/UB-CSE-IT/Autolab).
 
+## 2025.1.0
+
+Deployed 2025-08-30
+
+- New feature: Assessment dependencies: In Edit Assessment > Advanced, an assessment can require achieving a minimum
+  score on another assessment before students may submit it.
+
 ## 2025.0.5
 
 Deployed 2025-06-17

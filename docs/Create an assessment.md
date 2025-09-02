@@ -87,10 +87,13 @@ and receive points for. We'll add some to our new assessment after this overview
 
 ### Advanced
 
-The "advanced" tab allows you to configure student groups and use an embedded HTML form for submissions.
+The "advanced" tab allows you to configure student groups, embedded HTML forms, and an assessment dependency.
 
 The official Autolab [Embedded Forms documentation](https://docs.autolabproject.com/features/embedded-forms/) is a good
 reference.
+
+**Assessment dependencies** are a custom UB feature. You can select a different assessment that must be completed with
+at least the selected minimum score before this assessment can be submitted to. Select "(None)" to disable.
 
 ![Assessment advanced settings](screenshots/assessment_advanaced_settings.png)
 
