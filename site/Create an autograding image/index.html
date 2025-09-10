@@ -649,9 +649,11 @@ RUN python3 --version
 <p>You can forcefully rebuild the entire image with the <code>--no-cache</code> option if changes don't seem to be applied.</p>
 <p>Create a directory that mimics how Tango will arrange the files.</p>
 <p>For example: in the <code>/path/to/directory</code> directory, I'll place:  <code>Makefile</code>, <code>handin.py</code>, and <code>autograde.tar</code>. You could also add <code>settings.json</code> if your grader depends on it. Autolab will always provide these four files. (The file name of the student submission is configured in your <a href="../Create%20an%20assessment/#handin">handin settings</a>. The Makefile and autograde.tar come from your <a href="../Create%20an%20autograder/">autograder</a>.)</p>
-<p>To mimic running a job the way Tango will, use the following command. 
-* Update <code>cse_123</code> to your actual image name.
-* Update <code>/path/to/directory/</code> to the location you placed the 3 or 4 files.</p>
+<p>To mimic running a job the way Tango will, use the following command. </p>
+<ul>
+<li>Update <code>cse_123</code> to your actual image name.</li>
+<li>Update <code>/path/to/directory/</code> to the location you placed the 3 or 4 files.</li>
+</ul>
 <pre><code class="language-bash">docker run --rm -v /path/to/directory/:/home/mount cse_123 sh -c 'cp -r mount/* autolab/; su autolab -c &quot;autodriver -u 100 -f 104857600 -t 20 -o 1024000 autolab &gt; output/feedback 2&gt;&amp;1&quot;; cp output/feedback mount/feedback'
 </code></pre>
 <p>This complicated command is explained in depth in <a href="../The%20autograding%20process/#running-the-job">The autograding process</a>. (Though, it's slightly different here for your convenience.)</p>
