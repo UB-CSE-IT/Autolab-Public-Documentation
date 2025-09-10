@@ -82,8 +82,9 @@ Create a directory that mimics how Tango will arrange the files.
 For example: in the `/path/to/directory` directory, I'll place:  `Makefile`, `handin.py`, and `autograde.tar`. You could also add `settings.json` if your grader depends on it. Autolab will always provide these four files. (The file name of the student submission is configured in your [handin settings](Create an assessment.md#handin). The Makefile and autograde.tar come from your [autograder](Create an autograder.md).)
 
 To mimic running a job the way Tango will, use the following command. 
-* Update `cse_123` to your actual image name.
-* Update `/path/to/directory/` to the location you placed the 3 or 4 files.
+
+  * Update `cse_123` to your actual image name.
+  * Update `/path/to/directory/` to the location you placed the 3 or 4 files.
 
 ```bash
 docker run --rm -v /path/to/directory/:/home/mount cse_123 sh -c 'cp -r mount/* autolab/; su autolab -c "autodriver -u 100 -f 104857600 -t 20 -o 1024000 autolab > output/feedback 2>&1"; cp output/feedback mount/feedback'
