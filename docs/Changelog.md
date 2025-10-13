@@ -1,6 +1,17 @@
 This document logs the changes made in each UB Autolab version. You can view the detailed commit history in
 the [GitHub repository](https://github.com/UB-CSE-IT/Autolab).
 
+## 2025.1.1
+
+Deployed 2025-10-13
+
+- New feature: A default page number and problem name can be specified when annotating submissions to make grading
+  faster
+- New feature: Annotated PDF submissions can be downloaded in bulk
+- UX: Files are sorted alphabetically when previewing a submission
+- UI: Added a link to this changelog in the footer
+- Bug fix: Submitting a corrupt archive no longer prevents previewing the contents of later submissions
+
 ## 2025.1.0
 
 Deployed 2025-08-30

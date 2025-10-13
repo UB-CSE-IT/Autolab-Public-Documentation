@@ -45,9 +45,9 @@ When a job is ready to run, Tango:
 
 * Picks a worker node to run the job on
 * Creates a directory on the worker to copy the job files to via SSH
-  * E.g., `/docker-volumes/dev-1005-autograding_image`
+    * E.g., `/docker-volumes/dev-1005-autograding_image`
 * Copies each job file to the worker node via SCP
-  * E.g., `/docker-volumes/dev-1005-autograding_image/handin.py`
+    * E.g., `/docker-volumes/dev-1005-autograding_image/handin.py`
 * Executes the command to begin autograding on the worker node via SSH (elaborated below)
 
 The command that begins autograding is similar to the following. This example is from a development environment, but the core of the command is identical in production.
