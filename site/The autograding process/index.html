@@ -678,10 +678,14 @@
 <p>When a job is ready to run, Tango:</p>
 <ul>
 <li>Picks a worker node to run the job on</li>
-<li>Creates a directory on the worker to copy the job files to via SSH</li>
+<li>Creates a directory on the worker to copy the job files to via SSH<ul>
 <li>E.g., <code>/docker-volumes/dev-1005-autograding_image</code></li>
-<li>Copies each job file to the worker node via SCP</li>
+</ul>
+</li>
+<li>Copies each job file to the worker node via SCP<ul>
 <li>E.g., <code>/docker-volumes/dev-1005-autograding_image/handin.py</code></li>
+</ul>
+</li>
 <li>Executes the command to begin autograding on the worker node via SSH (elaborated below)</li>
 </ul>
 <p>The command that begins autograding is similar to the following. This example is from a development environment, but the core of the command is identical in production.</p>
