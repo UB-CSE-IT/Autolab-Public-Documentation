@@ -1,6 +1,14 @@
 This document logs the changes made in each UB Autolab version. You can view the detailed commit history in
 the [GitHub repository](https://github.com/UB-CSE-IT/Autolab).
 
+## 2025.1.2
+
+Deployed 2025-11-25
+
+- Bug fix: Directories containing macOS metadata files will be displayed when previewing a submission
+- UX: Directories are listed before files when previewing a submission
+- UI: The default page selector is only shown when previewing PDF submissions
+
 ## 2025.1.1
 
 Deployed 2025-10-13
