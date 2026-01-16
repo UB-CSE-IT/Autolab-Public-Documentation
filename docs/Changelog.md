@@ -1,6 +1,20 @@
 This document logs the changes made in each UB Autolab version. You can view the detailed commit history in
 the [GitHub repository](https://github.com/UB-CSE-IT/Autolab).
 
+## 2026.0.0
+
+Deployed 2026-01-16
+
+- New feature: A per-assessment submission cooldown can be configured to discourage rapid low-effort submissions
+- New feature: All annotations for an assessment can be exported to a CSV file from the "Manage Submissions 2.0" page
+- UX: When creating extensions, the user matching the email address in the user selection field will be selected by
+  default when the field loses focus. Multiple comma-separated email addresses can be pasted, and each user will be
+  added to the selection.
+- UI: Reduce the header size of the "Manage Submissions 2.0" page
+- Bug fix: Don't show duplicate directories in the submission preview file tree when a submission contains a directory
+  named "."
+- Bug fix: Allow GitHub submissions from repositories and branches with underscores in their names
+
 ## 2025.1.2
 
 Deployed 2025-11-25

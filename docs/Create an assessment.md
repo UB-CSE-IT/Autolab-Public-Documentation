@@ -62,7 +62,8 @@ file for the assessment is advanced, so you can ignore that for now.
 
 The "handin" tab allows you to configure the start, due, end, and grading deadline dates for the assessment. You can
 choose if students are allowed to submit directly from a GitHub repo, change the handin filename, set the maximum
-submission size, and disable handins. Each of these is explained in the help text below the option.
+submission size, specify a submission cooldown, and disable handins. Each of these is explained in the help text below
+the option.
 
 ![Assessment handin settings](screenshots/assessment_handin_settings.png)
 
