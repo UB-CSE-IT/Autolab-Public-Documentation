@@ -98,6 +98,40 @@ at least the selected minimum score before this assessment can be submitted to. 
 
 ![Assessment advanced settings](screenshots/assessment_advanaced_settings.png)
 
+### Group submissions
+
+Groups can be formed for collaborative assessments. Only one member of the group needs to make a submission, and each
+member will receive the same feedback and scores.
+
+To enable groups for an assessment, set the "Group size" to be greater than 1 in the advanced tab. You can optionally
+allow students to create their own groups here as well, otherwise, you'll need to assign groups yourself.
+
+To manage groups, navigate to the assessment page, and in the "Admin Options" list, select "Group settings".
+
+Here, you can view/edit existing groups, create a new group, copy groups from a different assessment, or import a CSV file of
+groups.
+
+#### Importing Groups From CSV
+
+Create a CSV file without a header with two columns: email and group name.
+
+For example:
+
+```text
+email1, group1
+email2, group1
+email3, group1
+email4, group2
+email5, group2
+```
+
+Upload this at the top of the groups page and click "Import CSV" to quickly assign groups in bulk.
+
+##### Copying Groups From Another Assessment
+
+If students are not allowed to self-assign groups, you can select another assessment to copy the groups from at the
+bottom of the groups page.
+
 ## Add Problems
 
 Now that we've looked at the assessment settings, let's add some problems. Navigate to the "Problems" tab and
