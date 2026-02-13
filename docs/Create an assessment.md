@@ -127,7 +127,7 @@ email5, group2
 
 Upload this at the top of the groups page and click "Import CSV" to quickly assign groups in bulk.
 
-##### Copying Groups From Another Assessment
+#### Copying Groups From Another Assessment
 
 If students are not allowed to self-assign groups, you can select another assessment to copy the groups from at the
 bottom of the groups page.
