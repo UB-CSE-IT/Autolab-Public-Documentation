@@ -1,6 +1,21 @@
 This document logs the changes made in each UB Autolab version. You can view the detailed commit history in
 the [GitHub repository](https://github.com/UB-CSE-IT/Autolab).
 
+## 2026.0.2
+
+- Bug fix: The submission file viewer will be rendered with the correct height for submissions containing classic macOS
+  line endings (`\r`).
+- UX: When creating extensions in bulk, pasted email addresses can be separated by semicolons or whitespace in addition
+  to the previously supported commas.
+- UX: Keyboard accessibility of the "refresh feedback" button has been improved.
+
+## 2026.0.1
+
+Deployed 2026-03-16
+
+- Security improvement: Resolves several vulnerabilities raised
+  in [upstream issue 2313](https://github.com/autolab/Autolab/issues/2313)
+
 ## 2026.0.0
 
 Deployed 2026-01-16
