@@ -1,6 +1,10 @@
 This document logs the changes made in each UB Autolab version. You can view the detailed commit history in
 the [GitHub repository](https://github.com/UB-CSE-IT/Autolab).
 
+## 2026.1.0
+
+- New feature: Configurable external announcement banners (for system administrators)
+
 ## 2026.0.2
 
 - Bug fix: The submission file viewer will be rendered with the correct height for submissions containing classic macOS
