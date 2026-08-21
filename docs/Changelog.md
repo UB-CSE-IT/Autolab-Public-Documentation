@@ -1,7 +1,15 @@
 This document logs the changes made in each UB Autolab version. You can view the detailed commit history in
 the [GitHub repository](https://github.com/UB-CSE-IT/Autolab).
 
+## 2026.1.1
+
+Deployed 2026-08-21
+
+- Bug fix: Embedded forms and submission feedback can include all UTF-8 characters (including math symbols and emojis)
+
 ## 2026.1.0
+
+Deployed 2026-08-17
 
 - New feature: Configurable external announcement banners (for system administrators)
 
