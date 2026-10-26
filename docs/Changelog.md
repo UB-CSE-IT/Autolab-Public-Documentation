@@ -1,6 +1,13 @@
 This document logs the changes made in each UB Autolab version. You can view the detailed commit history in
 the [GitHub repository](https://github.com/UB-CSE-IT/Autolab).
 
+## 2026.1.2
+
+Deployed 2026-10-26
+
+- Bug fix: The "Upload course.rb" button is now enabled for administrators
+- Bug fix: Moss submissions will more reliably classify text vs. binary files
+
 ## 2026.1.1
 
 Deployed 2026-08-21
